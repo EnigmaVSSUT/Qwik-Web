@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+enigma-290616-b22fd360e858.json
+google-credentials.json
