@@ -151,6 +151,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    "enigma-290616-b22fd360e858.json"
+)
+
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'enigma-290616.appspot.com'
 STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
