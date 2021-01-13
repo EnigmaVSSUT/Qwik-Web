@@ -118,6 +118,11 @@ SOCIALACCOUNT_PROVIDERS = {
             'picture-url',
             'public-profile-url',
         ]
+    },
+    'github': {
+        'SCOPE': [
+            'user',
+        ],
     }
 }
 
