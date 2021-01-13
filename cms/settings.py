@@ -152,9 +152,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-    "enigma-290616-b22fd360e858.json"
+    "google-credentials.json"
 )
-credential_path = "enigma-290616-b22fd360e858.json"
+credential_path = "google-credentials.json"
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
