@@ -85,18 +85,25 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-SITE_ID = 1
+SITE_ID = 2
 
+# For each OAuth based provider, either add a ``SocialApp``
+# (``socialaccount`` app) containing the required client
+# credentials, or list them here:
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-        # For each OAuth based provider, either add a ``SocialApp``
-        # (``socialaccount`` app) containing the required client
-        # credentials, or list them here:
-        'APP': {
-            'client_id': '123',
-            'secret': '456',
-            'key': ''
-        }
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        # 'APP': {
+#         #     'client_id': '123',
+#         #     'secret': '456',
+#         #     'key': ''
+#         # }
     }
 }
 
@@ -151,15 +158,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-    "google-credentials.json"
-)
-credential_path = "google-credentials.json"
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 
-DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-GS_BUCKET_NAME = 'enigma-290616.appspot.com'
-STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+## --------------------Temporarily down----------------------------------
+# GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+#     "google-credentials.json"
+# )
+# credential_path = "google-credentials.json"
+# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
+
+# DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+# GS_BUCKET_NAME = 'enigma-290616.appspot.com'
+# STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
 STATIC_URL = '/static/'
 
