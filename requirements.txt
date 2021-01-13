@@ -6,6 +6,9 @@ cryptography==3.3.1
 defusedxml==0.6.0
 Django==3.1.2
 django-allauth==0.44.0
+autopep8==1.5.4
+dj-database-url==0.5.0
+django-heroku==0.3.1
 gunicorn==20.0.4
 idna==2.10
 oauthlib==3.1.0
@@ -13,9 +16,12 @@ psycopg2==2.8.6
 pycparser==2.20
 PyJWT==2.0.0
 python3-openid==3.2.0
+pycodestyle==2.6.0
 pytz==2020.1
 requests==2.25.1
 requests-oauthlib==1.3.0
 six==1.15.0
 sqlparse==0.3.1
 urllib3==1.26.2
+toml==0.10.2
+whitenoise==5.2.0
