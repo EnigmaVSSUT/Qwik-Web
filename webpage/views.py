@@ -42,3 +42,6 @@ def team(request):
             'm_form2': m_form2
         }
         return render(request, 'webpages/team-page.html', context)
+
+def register(request):
+    return render(request,'webpages/register.html')
