@@ -1,0 +1,403 @@
+{% load static %}
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,500" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Damion);
+body {
+  background: #100e17;
+}
+
+.delayone {
+  -moz-animation-delay: 0.2s;
+  -webkit-animation-delay: 0.2s;
+}
+
+.delaytwo {
+  -moz-animation-delay: 0.4s;
+  -webkit-animation-delay: 0.4s;
+}
+
+.delaythree {
+  -moz-animation-delay: 0.6s;
+  -webkit-animation-delay: 0.6s;
+}
+
+.delayfour {
+  -moz-animation-delay: 0.8s;
+  -webkit-animation-delay: 0.8s;
+}
+
+.delayfive {
+  -moz-animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+}
+
+.delaysix {
+  -moz-animation-delay: 1.4s;
+  -webkit-animation-delay: 1.4s;
+}
+
+h1 {
+  font-family: "Damion", cursive;
+  color: #fff;
+  font-size: 6em;
+  text-align: center;
+  margin-top: 0;
+}
+
+.icon {
+  position: absolute;
+  width: 100%;
+  margin-top: 30%;
+  display: block;
+  color: #004d40;
+  font-size: 3em;
+  -webkit-transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -moz-transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#circ {
+  max-width: 100%;
+  min-height: 200px;
+  width: 1280px;
+  text-align: center;
+  margin: 0 auto;
+  float: none;
+}
+#circ ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+  width: 100%;
+}
+#circ ul li {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  margin: 0 20px 20px 20px;
+  text-align: center;
+  background: #35ff17;
+  border: solid 8px #fff;
+  position: relative;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+#circ ul li:hover {
+  border: solid 8px rgb(218, 217, 217);
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1200px) {
+  h1 {
+    font-size: 4em;
+  }
+
+  .icon {
+    position: relative;
+    margin-top: 30%;
+    color: #004d40;
+    font-size: 2em;
+    -webkit-transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  #circ ul li {
+    width: 80px;
+    height: 80px;
+    margin: 0 5px 5px 5px;
+  }
+  #circ ul li:hover .icon {
+    font-size: 2.5em;
+  }
+}
+@media only screen and (max-width: 690px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  #circ ul li {
+    border-radius: 0;
+    border: none;
+    margin: 0;
+  }
+  #circ ul li:hover {
+    border: none;
+  }
+}
+        html,
+        body {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+
+        /* What it does: Stops email clients resizing small text. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* What it does: Centers email on Android 4.4 */
+        div[style*="margin: 16px 0"] {
+            margin: 0 !important;
+        }
+
+        /* What it does: Stops Outlook from adding extra spacing to tables. */
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+
+        table table table {
+            table-layout: auto;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        *[x-apple-data-detectors],
+        /* iOS */
+        .x-gmail-data-detectors,
+        /* Gmail */
+        .x-gmail-data-detectors *,
+        .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        .a6S {
+            display: none !important;
+            opacity: 0.01 !important;
+        }
+
+        img.g-img+div {
+            display: none !important;
+        }
+
+        /* What it does: Prevents underlining the button text in Windows 10 */
+        .button-link {
+            text-decoration: none !important;
+        }
+
+        @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+            .email-container {
+                min-width: 375px !important;
+            }
+        }
+    </style>
+    <style>
+        .button-td,
+        .button-a {
+            transition: all 100ms ease-in;
+        }
+
+        .button-td:hover,
+        .button-a:hover {
+            background: #ffffff !important;
+            border-color: #ffffff !important;
+        }
+        
+
+        /* Media Queries */
+        @media screen and (max-width: 480px) {
+            .fluid {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            .stack-column,
+            .stack-column-center {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                direction: ltr !important;
+            }
+
+            /* And center justify these ones. */
+            .stack-column-center {
+                text-align: center !important;
+            }
+
+            .center-on-narrow {
+                text-align: center !important;
+                display: block !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                float: none !important;
+            }
+
+            table.center-on-narrow {
+                display: inline-block !important;
+            }
+
+            .email-container p {
+                font-size: 17px !important;
+                line-height: 22px !important;
+            }
+        }
+    </style>
+</head>
+
+<body width="100%" bgcolor="#100E17" style="margin: 0;">
+    <center style="width: 100%; background: #F1F1F1; text-align: left;">
+        <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;"> Join us on YouTube Live on 16th Jan, 7:00 pm. </div>
+        <div style="max-width: 680px; margin: auto;" class="email-container">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;" class="email-container">
+                <tr>
+                    <td background="./code.jpg" bgcolor="#222222" align="center" valign="top" style="text-align: center; background-position: center center !important; background-size: cover !important;">
+                        <div>
+                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:500px; margin: auto;">
+                                <tr>
+                                    <td height="20" style="font-size:20px; line-height:20px;">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td align="center" valign="middle">
+                                        <table>
+                                            <tr>
+                                                <td valign="top" style="text-align: center; padding: 60px 0 10px 20px;">
+                                                    <h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 30px; line-height: 36px; color: #35ff1f; font-weight: bold;">Hello {{attendee.firstname}},</h1>
+                                                </td>
+                                            </tr>
+                                                                                      <tr>
+                                                <td valign="top" style="text-align: center; padding: 0px 0 10px 20px;">
+                                                    <h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 20px; line-height: 36px; color: #35ff1f; font-weight: bold;">Thanks for registering,</h3>
+                                                </td>
+                                            </tr>
+                                          
+                                <tr>
+                                    <td height="20" style="font-size:20px; line-height:20px;">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#100e17">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="padding: 40px 40px 20px 40px; text-align: left;">
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0px 40px 20px 40px; font-family: sans-serif; font-size: 25px; line-height: 20px; color: #cccccc; text-align: left; font-weight:bold;">
+                                    <p style="margin: 0;">We are excited to have you aboard!</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0px 40px 20px 40px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; text-align: left; font-weight:normal;">
+                                    <p style="margin: 0;">
+
+                                      You have successfully registered for the Enigma Orientation (cybernated escapade) and we are thrilled to have you on board.
+                                      Join us live on youtube on 16th January, 2020 at 7:00pm. the link will be sent to you through mail and also on the telegram 
+                                      and whatsapp group of enigma one hour prior to the event.
+                                      <br/>
+                                      <br/> Regards,
+                                      <br/>Team Enigma 
+</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>                 <tr>
+                    <td bgcolor="#35FF17">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="padding: 40px 40px 5px 40px; text-align: center;">
+                                    <h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 20px; line-height: 24px; color: #100317; font-weight: bold;padding : 0px 0px 10px 0px">Click the button below to know more</h1>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" align="center" style="text-align: center; padding: 0px 20px 40px 20px;">
+                                    <!-- Button : BEGIN -->
+                                    <table role="presentation" align="center" cellspacing="0" cellpadding="0" border="0" class="center-on-narrow">
+                                        <tr>
+                                          <td style="border-radius: 50px; background: #100317; text-align: center;" class="button-td"> 
+                                            <a href="https://enigmavssut.tech/events/" style="background: #100317; border: 15px solid #100317; font-family: 'Montserrat', sans-serif; font-size: 14px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 50px; font-weight: bold;" class="button-a"> 
+                                              <span style="color:#35FF17;" class="button-link">&nbsp;&nbsp;&nbsp;&nbsp;Event Page&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+                                            </a> 
+                                          </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr><!-- INTRO : END -->
+                                                  <tr>
+                                <td bgcolor="#100317" style="padding: 20px 40px 0px 40px; text-align: left;">
+                                    <h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 20px; line-height: 26px; color: #35FF17; font-weight: bold;">FOLLOW US ON</h1>
+                                </td>
+                            </tr>
+                            <tr>
+                              <td bgcolor="#100317">
+                                <div>
+                                  <ul>
+                                    <li class="animated zoomIn">
+                                      <a href="https://www.instagram.com/enigma_vssut/?igshid=fx77cgfg206p">Instagram</a>
+                                    </li>
+                                    <li class="animated zoomIn">
+                                      <a href="https://www.facebook.com/enigma.vssut/">Facebook</a>
+                                    </li>
+                                    <li class="animated zoomIn">
+                                      <a href="https://www.linkedin.com/company/enigma-vssut/">LinkedIn</a>
+                                    </li>
+                                    <li class="animated zoomIn">
+                                      <a href="https://github.com/EnigmaVSSUT">GitHub</a>
+                                    </li>
+                                    <li class="animated zoomIn">
+                                      <a href="https://t.me/joinchat/VCgEjIllPRMGhPZJ">Telegram</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </td>
+                            </tr>
+                <tr>
+                    <td bgcolor="#100317">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"> <br>
+                            <tr>
+                                <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; padding: 5px 0 10px 0;">
+                                    <p style="font-size: 14px; font-weight: 800; line-height: 18px; color: #35FF17;"> enigmavssut.tech<br> VSSUT, Burla </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0px 40px 10px 40px; font-family: sans-serif; font-size: 12px; line-height: 18px; color: #666666; text-align: center; font-weight:normal;">
+                                    <p style="margin: 0;">This email was sent to you from orientation@enigmavssut.tech</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+</body>
+
+</html>
