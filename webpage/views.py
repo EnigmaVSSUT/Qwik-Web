@@ -32,7 +32,7 @@ def team(request):
         else:
             messages.warning(request, 'Invalid Entry!')
     else:
-        all_members = Member.objects.all()
+        all_members = Member.objects.all().order_by('-year')
         m_form = MemberRegistrationForm()
         m_form2 = MemberRegistrationForm2()
         context = {
@@ -42,3 +42,6 @@ def team(request):
             'm_form2': m_form2
         }
         return render(request, 'webpages/team-page.html', context)
+
+def register(request):
+    return render(request,'webpages/register.html')
