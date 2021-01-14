@@ -9,3 +9,9 @@ def home(request):
 @login_required
 def user_profile(request):
     return render(request, 'webpages/user_profile.html')
+
+def team(request):
+    context = {
+        'title': team
+    }
+    return render(request, 'webpages/team-page.html', context)

@@ -160,6 +160,9 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'enigma-290616.appspot.com'
 STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+STATIC_ROOT = 'staticfiles'
+STATICFILES_DIRS = (
+os.path.join(BASE_DIR, 'static',),)
 
 STATIC_URL = '/static/'
 
