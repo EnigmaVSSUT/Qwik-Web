@@ -45,9 +45,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.linkedin',
-    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.linkedin_oauth2',
     'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.facebook',
 ]
 
 MIDDLEWARE = [
@@ -87,16 +87,63 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 2
 
+# For each OAuth based provider, either add a ``SocialApp``
+# (``socialaccount`` app) containing the required client
+# credentials, or list them here:
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-        # For each OAuth based provider, either add a ``SocialApp``
-        # (``socialaccount`` app) containing the required client
-        # credentials, or list them here:
-        'APP': {
-            'client_id': '123',
-            'secret': '456',
-            'key': ''
-        }
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        # 'APP': {
+#         #     'client_id': '123',
+#         #     'secret': '456',
+#         #     'key': ''
+#         # }
+    },
+    'linkedin': {
+        'SCOPE': [
+            'r_basicprofile',
+            'r_emailaddress'
+        ],
+        'PROFILE_FIELDS': [
+            'id',
+            'first-name',
+            'last-name',
+            'email-address',
+            'picture-url',
+            'public-profile-url',
+        ]
+    },
+    'github': {
+        'SCOPE': [
+            'user',
+        ],
+    },
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
+        'SCOPE': ['email', 'public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': True},
+        'FIELDS': [
+            'id',
+            'first_name',
+            'last_name',
+            'middle_name',
+            'name',
+            'name_format',
+            'picture',
+            'short_name'
+        ],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': 'path.to.callable',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v7.0',
     }
 }
 
@@ -151,14 +198,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-    "google-credentials.json"
-)
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file("google-credentials.json")
 credential_path = "google-credentials.json"
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'enigma-290616.appspot.com'
+
 STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
