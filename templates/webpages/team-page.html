@@ -2,15 +2,18 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <main id="main">
-        <!-- ======= Team Section ======= -->
-      <section id="team" class="team">
+<main id="main">
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
         <div class="container">
 
-          <div class="section-title">
-            <h2>All Members</h2>
-            <p>Here is the list of members of our great team.</p>
-          </div>
+            <div class="section-title">
+                <h2>Team</h2>
+                <p>"Teamwork makes the dream work."
+                    At Enigma, we're not just coders who develop and build, but a family which grows together.<br>
+                    Want to be a part of this? Let's first meet the team.
+                </p>
+            </div>
 
             <div class="row">
               {% for member in all_members %}
@@ -120,6 +123,7 @@
                 <div class="col-md-6 mb-4">
                     <div class="form-group">
                         {{ m_form|crispy}}
+
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
@@ -136,6 +140,8 @@
             </div>
           </form>
         </div>
+    </section><!-- End Team Section -->
+</main>
       </section><!-- End Team Section -->
 
     </main>
