@@ -1,4 +1,5 @@
 {% extends "account/base.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -9,6 +10,28 @@
 
             <div class="section-title">
                 <h2>Our Team</h2>
+                <div class="row justify-content-center">
+                  <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="member">
+                      <img src="{% static 'assets/img/seretary.jpeg' %}" class="img-fluid" style="Width:100%; Height:300px;">
+                      
+                      <div class="member-info">
+                        <div class="member-info-content">
+                          <h4>Soumyajit Rout</h4>
+                          <span>Year: Final</span>
+                          <div class="social">
+                          <a href="https://github.com/soum-sr"><i class="icofont-github"></i></a>
+                          <a href=""><i class="icofont-facebook"></i></a>
+                          <a href="https://www.instagram.com/yei_ye_boi/"><i class="icofont-instagram"></i></a>
+                          <a href="https://www.linkedin.com/in/soumyajitrout/"><i class="icofont-linkedin"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <h3>Secretary</h3>
+                  </div>
+                </div>
+                <hr>
                 <p>"Teamwork makes the dream work."
                     At Enigma, we're not just coders who develop and build, but a family which grows together.<br>
                     Want to be a part of this? Let's first meet the team.
@@ -18,10 +41,10 @@
             <div class="row">
               {% for member in all_members %}
                 <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="member">
+                  <div class="member">
                     <img src="{{ member.profile_pic.url }}" class="img-fluid" style="Width:100%; Height:300px;">
                     <div class="member-info">
-                    <div class="member-info-content">
+                      <div class="member-info-content">
                         <h4>{{ member.firstname }} {{ member.lastname }}</h4>
                         <span>Year: {{ member.get_year_display }}</span>
                         <div class="social">
@@ -30,9 +53,9 @@
                         <a href="{{ member.instagram }}"><i class="icofont-instagram"></i></a>
                         <a href="{{ member.linkedin }}"><i class="icofont-linkedin"></i></a>
                         </div>
+                      </div>
                     </div>
-                    </div>
-                </div>
+                  </div>
                 </div>
               {% endfor %}
 
