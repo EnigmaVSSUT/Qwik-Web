@@ -22,14 +22,14 @@
         </ul>
       </nav><!-- .nav-menu -->
 
-      {% if request.user.is_authenticated %}
+      {% comment %} {% if request.user.is_authenticated %}
         <a href="{% url 'user-profile' %}" class="get-started-btn scrollto">Profile</a>
         <a href="{% url 'account_logout' %}" class="get-started-btn scrollto">Logout</a>
 
       {% else %}
         <a href="{% url 'account_login' %}" class="get-started-btn scrollto">Login</a>
         <a href="{% url 'account_signup' %}" class="get-started-btn scrollto">Signup</a>
-      {% endif %}
+      {% endif %} {% endcomment %}
 
     </div>
   </header>
