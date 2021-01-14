@@ -12,6 +12,6 @@ def user_profile(request):
 
 def team(request):
     context = {
-        'title': team
+        'title': 'team'
     }
     return render(request, 'webpages/team-page.html', context)
