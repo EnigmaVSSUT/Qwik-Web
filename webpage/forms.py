@@ -27,7 +27,7 @@ class ParticipantRegistrationForm(forms.ModelForm):
     class Meta:
         model=Participant
         fields=['first_name',
-        'last_name'
+        'last_name',
         'birthdate',
         'gender_p',
         'email',

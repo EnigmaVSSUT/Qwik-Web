@@ -18,7 +18,7 @@ DOMAIN_CHOICES = [
 
 GENDER_CHOICES= [
     ('1','Male'),
-    ('2','Female')
+    ('2','Female'),
     ('3','Other')
 ]
 
@@ -41,6 +41,7 @@ class Member(models.Model):
 class Participant(models.Model):
     first_name=models.CharField(max_length=100)
     last_name=models.CharField(max_length=100)
+    birthdate = models.DateField(auto_now=False, auto_now_add=False)
     gender_p=models.CharField(choices=GENDER_CHOICES,max_length=7)
     email=models.SlugField(unique=True,max_length=100)
     phone=models.CharField(max_length=15)
