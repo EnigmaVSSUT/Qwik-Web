@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.linkedin_oauth2',
+    'allauth.socialaccount.providers.linkedin',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.github',
 ]
@@ -87,42 +87,16 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 2
 
-# For each OAuth based provider, either add a ``SocialApp``
-# (``socialaccount`` app) containing the required client
-# credentials, or list them here:
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        },
-        # 'APP': {
-#         #     'client_id': '123',
-#         #     'secret': '456',
-#         #     'key': ''
-#         # }
-    },
-    'linkedin': {
-        'SCOPE': [
-            'r_basicprofile',
-            'r_emailaddress'
-        ],
-        'PROFILE_FIELDS': [
-            'id',
-            'first-name',
-            'last-name',
-            'email-address',
-            'picture-url',
-            'public-profile-url',
-        ]
-    },
-    'github': {
-        'SCOPE': [
-            'user',
-        ],
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '123',
+            'secret': '456',
+            'key': ''
+        }
     }
 }
 
@@ -177,17 +151,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    "google-credentials.json"
+)
+credential_path = "google-credentials.json"
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 
-## --------------------Temporarily down----------------------------------
-# GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-#     "google-credentials.json"
-# )
-# credential_path = "google-credentials.json"
-# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
-
-# DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-# GS_BUCKET_NAME = 'enigma-290616.appspot.com'
-# STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_BUCKET_NAME = 'enigma-290616.appspot.com'
+STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+STATIC_ROOT = 'staticfiles'
+STATICFILES_DIRS = (
+os.path.join(BASE_DIR, 'static',),)
 
 STATIC_URL = '/static/'
 

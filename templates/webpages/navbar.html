@@ -1,32 +1,50 @@
-<!-- Navbar -->
-{% load socialaccount %}
+{% load static %}
+<!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Enigma</a>
+      <!-- <h1 class="logo mr-auto"><a href="index.html">Groovin</a></h1> -->
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="index.html" class="logo mr-auto"><img src="{% static 'assets/img/enigma-logo.jpg' %}" alt="" class="img-fluid"></a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    
-  </div>
-  {% if request.user.is_authenticated %}
-      <a class="nav-link" href="{% url 'account_logout' %}">Logout</a> | 
-      <a class="nav-link" href="{% url 'user-profile' %}">My Profile</a> |
-      <a class="nav-link" href="/admin">Admin</a>
-    {% else %}
-      <a class="nav-link" href="{% url 'account_login' %}">Login</a> | 
-      <a class="nav-link" href="{% url 'account_signup' %}">Signup</a> |
-      <a href="{% provider_login_url 'google' %}">Login with Google</a> |
-      <a href="{% provider_login_url 'linkedin_oauth2' %}">Login with Linkedin</a> |
-      <a href="{% provider_login_url 'github' %}">Login with Github</a>
-    {% endif %}
-</nav>
-<!-- Navbar -->
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li {% if request.path == '/' %} class="active"{% endif %}><a href="/">Home</a></li>
+          <li {% if request.path == '/about' %} class="active"{% endif %}><a href="#about">About</a></li>
+          <li {% if request.path == '/what_we_do' %} class="active"{% endif %}><a href="#services">What we do</a></li>
+          <li {% if request.path == '/projects' %} class="active"{% endif %}><a href="#portfolio">Projects</a></li>
+          <li {% if request.path == '/team/' %} class="active"{% endif %}><a href="{% url 'team' %}">Team</a></li>
+          <!-- <li class="drop-down"><a href="">Drop Down</a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="drop-down"><a href="#">Deep Drop Down</a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li> -->
+          <li><a href="#contact">Contact us</a></li>
 
+        </ul>
+      </nav><!-- .nav-menu -->
+
+      {% if request.user.is_authenticated %}
+        <a href="{% url 'user-profile' %}" class="get-started-btn scrollto">Profile</a>
+        <a href="{% url 'account_logout' %}" class="get-started-btn scrollto">Logout</a>
+
+      {% else %}
+        <a href="{% url 'account_login' %}" class="get-started-btn scrollto">Login</a>
+        <a href="{% url 'account_signup' %}" class="get-started-btn scrollto">Signup</a>
+      {% endif %}
+
+    </div>
+  </header>
+  <!-- End Header -->
