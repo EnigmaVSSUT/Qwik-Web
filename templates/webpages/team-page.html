@@ -89,6 +89,53 @@
             </div>
 
         </div>
+
+        {% comment %} <div class="container">
+          <div class="section-title">
+            <h2>Become a member</h2>
+            <p>This form is only for the current or previous members of club only. This form will be closed soon.</p>
+          </div>
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-xl-10 col-lg-10 col-md-10">
+                {{ m_form|crispy }}
+              </div>
+            </div>
+            <button class="btn btn-outline-info" type="submit">Add</button>
+          </form>
+        </div> {% endcomment %}
+        <div class="container">
+
+          <div class="section-title">
+            <h2>Become a member</h2>
+            <p>This form is only for the current or previous members of club only. This form will be closed soon. <br> Please Provide all profile links</p>
+          </div>
+
+          <form method="POST" enctype="multipart/form-data" class="p-5">
+          {% csrf_token %}
+            <div class="card p-4">
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="form-group">
+                        {{ m_form|crispy}}
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="form-group">
+                        {{ m_form2|crispy}}
+                    </div>
+                </div>
+              </div>
+              <div class="row justify-content-md-center">
+                <div class="col-md-auto">
+                  <button class="btn btn-outline-info" type="submit">Add Member</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
       </section><!-- End Team Section -->
+
     </main>
 {% endblock %}
