@@ -1,0 +1,157 @@
+* {
+  --space-height: 70px;
+}
+
+.space-div {
+  height: var(--space-height);
+}
+
+.auth-main {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 50%);
+  color: aliceblue;
+  min-height: calc(100vh - var(--space-height));
+}
+
+.auth-sidebar {
+  background-color: #000000;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.club-logo {
+  width: 60%;
+}
+
+.sub-section {
+  padding: 100px 0;
+}
+.greeting {
+  margin-bottom: 160px;
+}
+.greeting > * {
+  margin: 0px;
+}
+
+.auth-container {
+  background-color: #461422;
+  height: 100%;
+  max-width: unset;
+}
+
+.heading {
+  align-self: flex-start;
+  margin-bottom: 26px;
+}
+
+.auth-section {
+  padding: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.auth-providers {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.auth-providers > .btn,
+.control-group .textinput {
+  color: aliceblue;
+  border-radius: 9px;
+  min-width: 350px;
+  margin: 7px;
+  height: 40px;
+  width: 100%;
+}
+.control-group .textinput {
+  background-color: #1e2122;
+  color: #d9d6d1;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  box-shadow: none;
+}
+.control-group .textinput:focus {
+  border-color: #545456;
+  box-shadow: 0 0 8px 0 #545456;
+}
+.control-group label {
+  margin: 0;
+  color: rgb(217, 214, 209);
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+.control-group {
+  margin: 7px;
+  margin-bottom: 22px;
+}
+.separator {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: rgb(159, 151, 138);
+  margin: 20px 0;
+  width: 100%;
+}
+.separator > .hr {
+  display: inline-block;
+  border-top: 1px solid rgb(159, 151, 138);
+  width: 40%;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.auth-form-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.auth-form-footer .btn {
+  color: #1977f3;
+}
+
+.submit-btn {
+  background-color: #991246;
+  color: white !important;
+  padding: 0 3em;
+  border-radius: 8px;
+  border: 0;
+  height: 38px;
+}
+.auth-form-footer .btn:hover {
+  color: #0054b2;
+  text-decoration: none;
+}
+
+.advice{
+    margin: 15px 0;
+}
+@media (max-width: 767px) {
+  .auth-main {
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
+  .auth-sidebar {
+    flex-direction: row;
+  }
+  .club-logo {
+    width: 100px;
+  }
+  .greeting {
+    margin: 0 0 0 30px;
+  }
+}

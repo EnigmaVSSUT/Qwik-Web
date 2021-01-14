@@ -1,28 +1,34 @@
 {% extends "account/base.html" %}
 {% load i18n %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-  <main>
-    <div class="container">
-      <section class="mb-4">
-        <div class="row wow fadeIn">
-          <div class='col-6 offset-3'>
-            <h1>{% trans "Sign Up" %}</h1>
-            <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-              {% csrf_token %}
-              {{ form|crispy }}
-              {% if redirect_field_value %}
-              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-              {% endif %}
-              <button class='btn btn-primary' type="submit">{% trans "Sign Up" %} &raquo;</button>
-            </form>
-          </div>
-        </div>
-      </section>
+<div class='space-div'></div>
+<main class='auth-main'>
+  <div class="auth-sidebar">
+    <img src="{% static 'assets/img/enigma-logo.jpg' %}" alt="" class="club-logo">
+    <div class="greeting">
+      <h3>Hi there!</h3>
+      <p>Welcome to Enigma VSSUT.</p>
+      <p>Haven't joined us yet?</p>
     </div>
-  </main>
+  </div>
+  <div class="container auth-container">
+    <section class="auth-section">
+      <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        <h4 class='heading' style="align-self: flex-start;">{% trans "Sign up to Enigma VSSUT" %}</h4>
+        {% csrf_token %}
+        {{ form|crispy }}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button class='submit-btn btn btn-primary' type="submit">{% trans "Sign Up" %} &raquo;</button>
+        <p class="advice">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+      </form>
+    </section>
+  </div>
+</main>
 {% endblock %}
