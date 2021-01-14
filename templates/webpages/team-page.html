@@ -16,11 +16,11 @@
               {% for member in all_members %}
                 <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="member">
-                    <img src="{{ member.profile_pic.url }}" class="img-fluid" style=>
+                    <img src="{{ member.profile_pic.url }}" class="img-fluid" style="Width:100%; Height:300px;">
                     <div class="member-info">
                     <div class="member-info-content">
                         <h4>{{ member.firstname }} {{ member.lastname }}</h4>
-                        <span>Year: {{ member.year }}</span>
+                        <span>Year: {{ member.get_year_display }}</span>
                         <div class="social">
                         <a href="{{ member.github }}"><i class="icofont-github"></i></a>
                         <a href="{{ member.facebook }}"><i class="icofont-facebook"></i></a>
