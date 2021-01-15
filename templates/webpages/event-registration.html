@@ -30,6 +30,7 @@
     <!-- Vendor CSS-->
     <link href="{% static 'assets/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
     <link href="{% static 'assets/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Main CSS-->
     <link href="{% static 'assets/css/event.css' %}" rel="stylesheet" media="all">
@@ -84,10 +85,9 @@
                         </div>
                         <div class="p-t-10">
                             <button class="btn btn--pill btn--green" type="submit">Submit</button>
+                            <a href={% url 'events' %} class="btn btn--pill btn-danger ml-1">Exit</a>
                         </div> 
-                        <div class="p-t-10">
-                            <a class="btn btn--pill btn--green" href={% url 'events' %}>Exit</button>
-                        </div> 
+                       
                     </form>
                 </div>
             </div>
@@ -100,6 +100,9 @@
     <script src="{% static 'assets/vendor/select2/select2.min.js' %}"></script>
     <script src="{% static 'assets/vendor/datepicker/moment.min.js' %}"></script>
     <script src="{% static 'assets/vendor/datepicker/daterangepicker.js' %}"></script>
+    <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
 
     <!-- Main JS-->
     <script src="{% static 'assets/js/event.js' %}"></script>
