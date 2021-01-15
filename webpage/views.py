@@ -24,12 +24,15 @@ def team(request):
         m_form2 = MemberRegistrationForm2(request.POST)
         if m_form.is_valid() and m_form2.is_valid():
             new_member = m_form.save(commit=False)
-            # new_member = m_form2.save(commit=False)
             new_member.github = m_form2.cleaned_data.get('github')
             new_member.facebook = m_form2.cleaned_data.get('facebook')
             new_member.linkedin = m_form2.cleaned_data.get('linkedin')
             new_member.instagram = m_form2.cleaned_data.get('instagram')
             new_member.slug = slugify(new_member.linkedin)
+            new_member.save()
+            sm = str(new_member.profile_pic)
+            smr = sm[:sm.rfind('.')] + '_300x400' + sm[sm.rfind('.'):]
+            new_member.profile_pic = smr
             new_member.save()
             messages.success(request, 'New member was added!')
             return redirect('team')
