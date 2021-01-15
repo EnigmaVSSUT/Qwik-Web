@@ -30,6 +30,7 @@
     <!-- Vendor CSS-->
     <link href="{% static 'assets/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
     <link href="{% static 'assets/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Main CSS-->
     <link href="{% static 'assets/css/event.css' %}" rel="stylesheet" media="all">
@@ -39,7 +40,7 @@
 
     <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
         <div class="wrapper wrapper--w780">
-        <a href="{% url 'events' %}"><h3>Back</h3></a>
+        <a href="{% url 'events' %}" class="btn btn-primary pt-2 pb-2 px-3 mb-3" ><h3>Back</h3></a>
             <div class="card card-3">
                 <div class="card-heading"></div>
                 <div class="card-body">
@@ -97,6 +98,9 @@
     <script src="{% static 'assets/vendor/select2/select2.min.js' %}"></script>
     <script src="{% static 'assets/vendor/datepicker/moment.min.js' %}"></script>
     <script src="{% static 'assets/vendor/datepicker/daterangepicker.js' %}"></script>
+    <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
 
     <!-- Main JS-->
     <script src="{% static 'assets/js/event.js' %}"></script>

@@ -18,13 +18,20 @@
                   <div class="member">
                       <img src="{% static 'assets/img/orientation_horizontal.jpeg' %}" class="img-fluid" alt="">
                       <div class="member-info">
-                      <div class="member-info-content">
+                      <!-- <div class="member-info-content">
                           <span>Total Attending: {{ total }}</span>
                           <span> - <span>
                           <a href="{% url 'event-registration' %}"><button  type="button" class="btn btn-success">Register</button></a>
-                      </div>
+                      </div> -->
                       </div>
                   </div>
+                </div>
+                <div class="col-xl-8 col-lg-10 col-md-10 mob">
+                    <div class="member-info-content">
+                        <span>Total Attending: {{ total }}</span><br>
+                        <span> <span>
+                        <a href="{% url 'event-registration' %}"><button  type="button" class="btn btn-success">Register</button></a>
+                    </div>
                 </div>
             </div>
 
