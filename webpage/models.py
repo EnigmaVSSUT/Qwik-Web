@@ -34,7 +34,8 @@ class Member(models.Model):
     others = models.CharField(max_length=100, null=True, blank=True)
     profile_pic = models.ImageField(upload_to='member_profile_pic', default='default.jpg')
     slug = models.SlugField(unique=True, max_length=100)
-
+    
+# hhtps:
     def __str__(self):
         return self.firstname
 
