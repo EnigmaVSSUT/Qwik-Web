@@ -40,7 +40,7 @@
 
     <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
         <div class="wrapper wrapper--w780">
-        <a href="{% url 'events' %}" class="btn btn-primary pt-2 pb-2 px-3 mb-3" ><h3>Back</h3></a>
+        
             <div class="card card-3">
                 <div class="card-heading"></div>
                 <div class="card-body">
@@ -85,7 +85,9 @@
                         </div>
                         <div class="p-t-10">
                             <button class="btn btn--pill btn--green" type="submit">Submit</button>
+                            <a href={% url 'events' %} class="btn btn--pill btn-danger ml-1">Exit</a>
                         </div> 
+                       
                     </form>
                 </div>
             </div>
