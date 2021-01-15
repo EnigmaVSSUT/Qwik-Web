@@ -22,12 +22,19 @@
                       <img src="{% static 'assets/img/orientation_horizontal.jpeg' %}" class="img-fluid" alt="">
                       <div class="member-info">
                       <div class="member-info-content">
-                          <span>Total Attending: {{ total }}</span>
+                          <span>Book your presence by registering  in the button below.</span>
+                          <!-- <span>Total Attending: {{ total }}</span>
                           <span> - <span>
-                          <a href="{% url 'event-registration' %}"><button  type="button" class="btn btn-success">Register</button></a>
+                          <a href="{% url 'event-registration' %}"><button  type="button" class="btn btn-success">Register</button></a> -->
                       </div>
                       </div>
                   </div>
+                </div>
+                <div class="col-xl-8 col-lg-10 col-md-10 mob">
+                    <div class="member-info-content justify-content-center">
+                        <span>Total Attending: {{ total }}</span><br>
+                        <a href="{% url 'event-registration' %}"><button  type="button" class="btn btn-success mt-1">Register</button></a>
+                    </div>
                 </div>
             </div>
 
