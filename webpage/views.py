@@ -63,41 +63,39 @@ def send_mail_to_user(attendee):
     email.send()
 
 def event_registration(request):
-    if request.method=='POST':
-        form = EventRegistrationForm(request.POST)
-        if form.is_valid():
-            new_registration = EventRegistration()
-            new_registration.firstname = form.cleaned_data.get('firstname')
-            new_registration.lastname = form.cleaned_data.get('lastname')
-            new_registration.email = form.cleaned_data.get('email')
-            new_registration.year = form.cleaned_data.get('year')
-            new_registration.branch = form.cleaned_data.get('branch')
-            new_registration.gender = form.cleaned_data.get('gender')
-            new_registration.slug = slugify(new_registration.email + 'orientation_2021')
-            new_registration.save()
-            send_mail_to_user(new_registration)
-            messages.success(request, 'You have successfully registered for the orientation! Ckeck you email for further information.')
-            return redirect('events')
-        else:
-            messages.success(request, 'Invalid Credentials')
-            return redirect('events')
-
-    else:
-        form = EventRegistrationForm()
-        context = {
-            'form': form
-        }
-
-    return render(request, 'webpages/event-registration.html', context)
-
-def events(request):
     try:
-        total = EventRegistration.objects.all().count()
-        context = {
-            'total': total
-        }
-        return render(request, 'webpages/events.html', context)
-    
+        if request.method=='POST':
+            form = EventRegistrationForm(request.POST)
+            if form.is_valid():
+                new_registration = EventRegistration()
+                new_registration.firstname = form.cleaned_data.get('firstname')
+                new_registration.lastname = form.cleaned_data.get('lastname')
+                new_registration.email = form.cleaned_data.get('email')
+                new_registration.year = form.cleaned_data.get('year')
+                new_registration.branch = form.cleaned_data.get('branch')
+                new_registration.gender = form.cleaned_data.get('gender')
+                new_registration.slug = slugify(new_registration.email + 'orientation_2021')
+                new_registration.save()
+                send_mail_to_user(new_registration)
+                messages.success(request, 'You have successfully registered for the orientation! Ckeck you email for further information.')
+                return redirect('events')
+            else:
+                messages.success(request, 'Invalid Credentials')
+                return redirect('events')
+
+        else:
+            form = EventRegistrationForm()
+            context = {
+                'form': form
+            }
+            return render(request, 'webpages/event-registration.html', context)
     except:
         messages.warning(request, 'You Have already registered for the event!')
         return redirect('events')
+
+def events(request):
+    total = EventRegistration.objects.all().count()
+    context = {
+        'total': total
+    }
+    return render(request, 'webpages/events.html', context)
