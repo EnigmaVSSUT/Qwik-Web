@@ -217,3 +217,11 @@ django_heroku.settings(locals())
 # django all-auth
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 LOGIN_REDIRECT_URL = '/'
+
+# django Email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.zoho.in'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'orientation@enigmavssut.tech'
+EMAIL_HOST_PASSWORD = 'SZ5wZsn8QUPQ'

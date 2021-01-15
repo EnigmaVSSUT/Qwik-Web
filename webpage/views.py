@@ -1,9 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import MemberRegistrationForm, MemberRegistrationForm2
+from .forms import MemberRegistrationForm, MemberRegistrationForm2, EventRegistrationForm
 from django.template.defaultfilters import slugify
-from .models import Member
+from django.core.mail import EmailMessage, send_mail, EmailMultiAlternatives
+from django.template.loader import render_to_string
+from .models import Member, EventRegistration
+from django.utils.html import strip_tags
+SENDER_EMAIL = 'orientation@enigmavssut.tech'
 
 # Create your views here.
 
@@ -43,5 +47,55 @@ def team(request):
         }
         return render(request, 'webpages/team-page.html', context)
 
-def register(request):
-    return render(request,'webpages/register.html')
+def send_mail_to_user(attendee):
+    context = {
+        "attendee": attendee
+    }
+    html_content = render_to_string("emails/reg_confirmation.html", context)
+    text_content = strip_tags(html_content)
+    email = EmailMultiAlternatives(
+        "Registered for orientation",
+        text_content,
+        SENDER_EMAIL,
+        [attendee.email]
+    )
+    email.attach_alternative(html_content, "text/html")
+    email.send()
+
+def event_registration(request):
+    try:
+        if request.method=='POST':
+            form = EventRegistrationForm(request.POST)
+            if form.is_valid():
+                new_registration = EventRegistration()
+                new_registration.firstname = form.cleaned_data.get('firstname')
+                new_registration.lastname = form.cleaned_data.get('lastname')
+                new_registration.email = form.cleaned_data.get('email')
+                new_registration.year = form.cleaned_data.get('year')
+                new_registration.branch = form.cleaned_data.get('branch')
+                new_registration.gender = form.cleaned_data.get('gender')
+                new_registration.slug = slugify(new_registration.email + 'orientation_2021')
+                new_registration.save()
+                send_mail_to_user(new_registration)
+                messages.success(request, 'You have successfully registered for the orientation! Ckeck you email for further information.')
+                return redirect('events')
+            else:
+                messages.success(request, 'Invalid Credentials')
+                return redirect('events')
+
+        else:
+            form = EventRegistrationForm()
+            context = {
+                'form': form
+            }
+            return render(request, 'webpages/event-registration.html', context)
+    except:
+        messages.warning(request, 'You Have already registered for the event!')
+        return redirect('events')
+
+def events(request):
+    total = EventRegistration.objects.all().count()
+    context = {
+        'total': total
+    }
+    return render(request, 'webpages/events.html', context)
