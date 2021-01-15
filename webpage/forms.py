@@ -13,6 +13,7 @@ class MemberRegistrationForm(forms.ModelForm):
                 'profile_pic',
                 ]
 
+## ------------------------------- MemberRegistrationForm2 is not required -------------------------------
 class MemberRegistrationForm2(forms.ModelForm):
     class Meta:
         model = Member
