@@ -65,6 +65,21 @@ def send_mail_to_user(attendee):
     email.attach_alternative(html_content, "text/html")
     email.send()
 
+def send_mails(attendee):
+    context = {
+        "attendee": attendee
+    }
+    html_content = render_to_string("emails/final_mail.html", context)
+    text_content = strip_tags(html_content)
+    email = EmailMultiAlternatives(
+        "Link for orientation",
+        text_content,
+        SENDER_EMAIL,
+        [attendee.email]
+    )
+    email.attach_alternative(html_content, "text/html")
+    email.send()
+
 def event_registration(request):
     try:
         if request.method=='POST':
