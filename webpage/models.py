@@ -78,16 +78,3 @@ class EventRegistration(models.Model):
         return self.firstname
 
 
-class LiftOffCRegistration(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    whatsapp_no = models.CharField(max_length=15)
-    year = models.CharField(choices=YEAR_CHOICES, max_length=20)
-    branch = models.CharField(choices=BRANCH_CHOICES, max_length=100)
-    expectations = models.TextField(null=True, blank=True)
-    mode_comm = models.CharField(
-        choices=MODE_COMMUNICATION, max_length=10)
-    slug = models.SlugField(unique=True, max_length=100)
-
-    def __str__(self):
-        return self.name
