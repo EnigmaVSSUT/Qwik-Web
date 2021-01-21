@@ -132,6 +132,7 @@ def lift_off_c_registration(request):
                     'whatsapp_no')
                 new_mentee.year = new_form.cleaned_data.get('year')
                 new_mentee.branch = new_form.cleaned_data.get('branch')
+                new_mentee.knowledge=new_form.cleaned_data.get('knowledge')
                 new_mentee.expectations = new_form.cleaned_data.get(
                     'expectations')
                 new_mentee.mode_comm = new_form.cleaned_data.get('mode_comm')
@@ -139,15 +140,21 @@ def lift_off_c_registration(request):
                 new_mentee.save()
                 messages.success(
                     request, 'You have successfully registered!')
-                return redirect('home')
+                return redirect('events')
             else:
                 messages.warning(
                     request, 'Oops! you could not be registred successfully.')
-                return redirect('home')
+                return redirect('events')
+        else:
+            new_form=LiftOffCRegistration()
+            context={
+                'form':new_form
+            }
+            return render(request,'webpages/form-index.html',context)
 
     except:
         messages.warning(request, 'You Have already registered!')
-        return redirect('home')
+        return redirect('events')
 
 
 def events(request):

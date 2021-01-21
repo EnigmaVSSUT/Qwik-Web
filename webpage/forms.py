@@ -50,6 +50,7 @@ class LiftOffCRegistrationForm(forms.ModelForm):
             'whatsapp_no',
             'year',
             'branch',
+            'knowledge',
             'expectations',
             'mode_comm'
         ]
