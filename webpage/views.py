@@ -1,25 +1,28 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import MemberRegistrationForm, MemberRegistrationForm2, EventRegistrationForm
+from .forms import MemberRegistrationForm, MemberRegistrationForm2, EventRegistrationForm, LiftOffCRegistrationForm
 from django.template.defaultfilters import slugify
 from django.core.mail import EmailMessage, send_mail, EmailMultiAlternatives
 from django.template.loader import render_to_string
-from .models import Member, EventRegistration
+from .models import Member, EventRegistration, LiftOffCRegistration
 from django.utils.html import strip_tags
 SENDER_EMAIL = 'orientation@enigmavssut.tech'
 
 # Create your views here.
 
+
 def home(request):
     return render(request, 'webpages/home.html')
+
 
 @login_required
 def user_profile(request):
     return render(request, 'webpages/user_profile.html')
 
+
 def team(request):
-    if request.method=='POST':
+    if request.method == 'POST':
         m_form = MemberRegistrationForm(request.POST, request.FILES)
         m_form2 = MemberRegistrationForm2(request.POST)
         if m_form.is_valid() and m_form2.is_valid():
@@ -50,6 +53,7 @@ def team(request):
         }
         return render(request, 'webpages/team-page.html', context)
 
+
 def send_mail_to_user(attendee):
     context = {
         "attendee": attendee
@@ -64,6 +68,7 @@ def send_mail_to_user(attendee):
     )
     email.attach_alternative(html_content, "text/html")
     email.send()
+
 
 def send_mails(attendee):
     context = {
@@ -80,9 +85,10 @@ def send_mails(attendee):
     email.attach_alternative(html_content, "text/html")
     email.send()
 
+
 def event_registration(request):
     try:
-        if request.method=='POST':
+        if request.method == 'POST':
             form = EventRegistrationForm(request.POST)
             if form.is_valid():
                 new_registration = EventRegistration()
@@ -92,10 +98,12 @@ def event_registration(request):
                 new_registration.year = form.cleaned_data.get('year')
                 new_registration.branch = form.cleaned_data.get('branch')
                 new_registration.gender = form.cleaned_data.get('gender')
-                new_registration.slug = slugify(new_registration.email + 'orientation_2021')
+                new_registration.slug = slugify(
+                    new_registration.email + 'orientation_2021')
                 new_registration.save()
                 send_mail_to_user(new_registration)
-                messages.success(request, 'You have successfully registered for the orientation! Ckeck you email for further information.')
+                messages.success(
+                    request, 'You have successfully registered for the orientation! Ckeck you email for further information.')
                 return redirect('events')
             else:
                 messages.success(request, 'Invalid Credentials')
@@ -110,6 +118,37 @@ def event_registration(request):
     except:
         messages.warning(request, 'You Have already registered for the event!')
         return redirect('events')
+
+
+def lift_off_c_registration(request):
+    try:
+        if request.method == 'POST':
+            new_form = LiftOffCRegistrationForm()
+            if new_form.is_valid():
+                new_mentee = LiftOffCRegistration()
+                new_mentee.name = new_form.cleaned_data.get('name')
+                new_mentee.email = new_form.cleaned_data.get('email')
+                new_mentee.whatsapp_no = new_form.cleaned_data.get(
+                    'whatsapp_no')
+                new_mentee.year = new_form.cleaned_data.get('year')
+                new_mentee.branch = new_form.cleaned_data.get('branch')
+                new_mentee.expectations = new_form.cleaned_data.get(
+                    'expectations')
+                new_mentee.mode_comm = new_form.cleaned_data.get('mode_comm')
+                new_mentee.slug = slugify(new_mentee.name + '2021')
+                new_mentee.save()
+                messages.success(
+                    request, 'You have successfully registered!')
+                return redirect('home')
+            else:
+                messages.warning(
+                    request, 'Oops! you could not be registred successfully.')
+                return redirect('home')
+
+    except:
+        messages.warning(request, 'You Have already registered!')
+        return redirect('home')
+
 
 def events(request):
     total = EventRegistration.objects.all().count()
