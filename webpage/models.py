@@ -12,15 +12,39 @@ YEAR_CHOICES = [
     ('5', 'Alumni'),
 ]
 
+BRANCH_CHOICES = [
+    ('CHEMICAL ENGINEERING', 'CHEMICAL ENGINEERING'),
+    ('CIVIL ENGINEERING', 'CIVIL ENGINEERING'),
+    ('COMPUTER SCIENCE AND ENGINEERING', 'COMPUTER SCIENCE AND ENGINEERING'),
+    ('ELECTRICAL ENGINEERING', 'ELECTRICAL ENGINEERING'),
+    ('ELECTRONICS AND TELECOMMUNICATION ENGINEERING',
+     'ELECTRONICS AND TELECOMMUNICATION ENGINEERING'),
+    ('ELECTRICAL AND ELECTRONICS ENGINEERING',
+     'ELECTRICAL AND ELECTRONICS ENGINEERING'),
+    ('INFORMATION TECHNOLOGY', 'INFORMATION TECHNOLOGY'),
+    ('MECHANICAL ENGINEERING', 'MECHANICAL ENGINEERING'),
+    ('METALLURGY AND MATERIALS ENGINEERING',
+     'METALLURGY AND MATERIALS ENGINEERING'),
+    ('PRODUCTION ENGINEERING', 'PRODUCTION ENGINEERING'),
+]
+
+
 DOMAIN_CHOICES = [
 
 ]
 
-GENDER_CHOICES= [
-    ('Male','Male'),
-    ('Female','Female'),
-    ('Other','Other')
+GENDER_CHOICES = [
+    ('Male', 'Male'),
+    ('Female', 'Female'),
+    ('Other', 'Other')
 ]
+
+MODE_COMMUNICATION = [
+    ('WhatsApp', 'WhatsApp'),
+    ('Telegram', 'Telegram'),
+    ('Discord', 'Discord')
+]
+
 
 class Member(models.Model):
     firstname = models.CharField(max_length=100)
@@ -32,9 +56,10 @@ class Member(models.Model):
     facebook = models.CharField(max_length=100, null=True, blank=True)
     instagram = models.CharField(max_length=100, null=True, blank=True)
     others = models.CharField(max_length=100, null=True, blank=True)
-    profile_pic = models.ImageField(upload_to='member_profile_pic', default='default.jpg')
+    profile_pic = models.ImageField(
+        upload_to='member_profile_pic', default='default.jpg')
     slug = models.SlugField(unique=True, max_length=100)
-    
+
 # hhtps:
     def __str__(self):
         return self.firstname
@@ -51,3 +76,5 @@ class EventRegistration(models.Model):
 
     def __str__(self):
         return self.firstname
+
+
