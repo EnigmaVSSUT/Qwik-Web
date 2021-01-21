@@ -1,7 +1,10 @@
-{% extends "account/base.html" %}
+{% extends "webpages/base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% block extra_head %}
+ <!-- Yahan pe daal de jitna bhi extra CSS hai -->
 
+{% endblock %}
 {% block content %}
 <main id="main">
     <!-- ======= Team Section ======= -->
@@ -19,12 +22,20 @@
                       <img src="{% static 'assets/img/orientation_horizontal.jpeg' %}" class="img-fluid" alt="">
                       <div class="member-info">
                       <div class="member-info-content">
-                          <span>Total Attending: {{ total }}</span>
+                          <span>Book your presence by registering  in the button below.</span>
+                          <span>Link to the event is available now.</span>
+                          <!-- <span>Total Attending: {{ total }}</span>
                           <span> - <span>
-                          <a href="{% url 'event-registration' %}"><button  type="button" class="btn btn-success">Register</button></a>
+                          <a href="{% url 'event-registration' %}"><button  type="button" class="btn btn-success">Register</button></a> -->
                       </div>
                       </div>
                   </div>
+                </div>
+                <div class="col-xl-8 col-lg-10 col-md-10 mob">
+                    <div class="member-info-content justify-content-center">
+                        <span>Total Attending: {{ total }}</span><br>
+                        <a href="https://youtu.be/ggFlb8wQzDc"><button  type="button" class="btn btn-success mt-1">Join Now</button></a>
+                    </div>
                 </div>
             </div>
 

@@ -33,6 +33,8 @@
   <link href="{% static 'assets/css/signup-page.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/login-page.css' %}" rel="stylesheet"> {% endcomment %}
 
+  {% block extra_head %}
+  {% endblock %}
   {% if title %}
     <title>{{ title }}</title>
   {% else %}
