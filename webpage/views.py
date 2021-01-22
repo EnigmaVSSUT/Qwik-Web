@@ -202,3 +202,21 @@ def all_regs(request):
         'all_count': all_count
     }
     return render(request, 'webpages/all_mentee_regs.html', context)
+
+def app_dev(request):
+    return render(request,'webpages/app.html')
+
+def ar_vr(request):
+    return render(request,'webpages/ar_vr.html')
+
+def grp_des(request):
+    return render(request,'webpages/grp-des.html')
+
+def cp(request):
+    return render(request,'webpages/cp.html')
+
+def ml_ai(request):
+    return render(request,'webpages/ml_ai.html')
+
+def web_dev(request):
+    return render(request,'webpages/web_dev.html')

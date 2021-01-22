@@ -1,0 +1,86 @@
+{% extends "webpages/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1>MACHINE LEARNING/ARTIFICIAL INTELLIGENCE</h1>
+    <img class="domain-img" src="{% static 'assets/img/domain/ml_ai.jpg' %}" alt="ml/ai">
+    <p class="description">Machine learning allows the application of sophisticated algorithms that provide systems the ability to learn automatically and improve from previous experiences without being explicitly programmed.
+Are you curious to know how some sites predict your choices?The wait is over. Join us and avail the opportunity to explore and get exposed to a number of fascinating projects.
+</p>
+
+  </div>
+  {%comment%}<!-- ======= Projects Section ======= -->
+  <section id="portfolio" class="portfolio section-bg">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Projects</h2>
+        <p>Enigma is a storehouse of ideas and innovation where every member is indulged is creating a technology for the betterment of society. <br>
+Let's have a look at some of those projects!!
+</p>
+      </div>
+
+      <div class="row portfolio-container">
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-ai">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>AI/ML 2</h4>
+              <p>AI/ML</p>
+              <!-- <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="AI/ML 2"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 3</h4>
+              <p>App</p>
+              <!-- <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-ai">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>AI/ML 1</h4>
+              <p>AI/ML</p>
+              <!-- <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="AI/ML 1"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-ai">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>AI/ML 3</h4>
+              <p>AI/ML</p>
+              <!-- <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="AI/ML 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+  </section><!-- End Projects Section -->{% endcomment %}
+  {% include "webpages/projects.html" %}
+{% endblock %}
