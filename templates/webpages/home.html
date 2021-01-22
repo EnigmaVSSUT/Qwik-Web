@@ -3,40 +3,37 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <!-- ======= Hero Section ======= -->
-  
-  <!-- Particles start -->
-  <div class="particle-container">
-    <div id="particle-slider">
-      <div class="slides">
-        <!-- <div class="slide" data-src="assets/img/logo1.png.webp"></div> -->
-        <div class="slide" data-src="assets/img/logo-small-transparent-30.png"></div>
-      </div>
-      <canvas class="draw"></canvas>
-    </div>
-  </div>
-  <!-- Particles end -->
-  <!-- End Hero -->
   <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"></div>
-          <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
-            <div class="content d-flex flex-column justify-content-center">
-              <h3>About</h3>
-              <p>
-              Enigma-The Coding Club is the place to take that interest in technology and turn it into a productive skill. We aim to reach each and every student passionate about programming and guide them through their coding adventure. Enigma is for everyone regardless of their branch or current level of knowledge. We believe learning is more fun and efficient when we work a team. Enigma is for students who are curious problem solvers, responsible and team players. Our team consists of highly efficient members who regularly work on innovative projects from every aspect of advanced computing. For a programmer, challenges are a part of their lives daily routine.Enigma appreciates this habit by providing unlimited scope to participate in coding challenges held across the country. Since 2011,Enigma has over 200 students and mentors dedicated to establish coding culture in VSSUT.We also have a wide and supportive alumni base which are extremely well placed in tech giants around the globe and are ever present in the workings of the club.
-              </p>
-            </div><!-- End .content-->
+    <div class="sticky-wrap">
+      <div class="particle-container">
+        <div id="particle-slider">
+          <div class="slides">
+            <!-- <div class="slide" data-src="ADD_EXTRA_IF_U_WANT"></div> -->
+            <div class="slide" data-src="{% static 'assets\img\enigma-logo.jpg' %}"></div>
           </div>
+          <canvas class="draw"></canvas>
         </div>
-
       </div>
-    </section><!-- End About Section -->
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container">
+      
+          <div class="row no-gutters">
+            <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"></div>
+            <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
+              <div class="content d-flex flex-column justify-content-center">
+                <h3>About</h3>
+                <p>
+                  Enigma-The Coding Club is the place to take that interest in technology and turn it into a productive skill. We aim to reach each and every student passionate about programming and guide them through their coding adventure. Enigma is for everyone regardless of their branch or current level of knowledge. We believe learning is more fun and efficient when we work a team. Enigma is for students who are curious problem solvers, responsible and team players. Our team consists of highly efficient members who regularly work on innovative projects from every aspect of advanced computing. For a programmer, challenges are a part of their lives daily routine.Enigma appreciates this habit by providing unlimited scope to participate in coding challenges held across the country. Since 2011,Enigma has over 200 students and mentors dedicated to establish coding culture in VSSUT.We also have a wide and supportive alumni base which are extremely well placed in tech giants around the globe and are ever present in the workings of the club.
+                </p>
+              </div><!-- End .content-->
+            </div>
+          </div>
+      
+        </div>
+      </section><!-- End About Section -->
+    </div>
+    
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">

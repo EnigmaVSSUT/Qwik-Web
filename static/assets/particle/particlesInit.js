@@ -1,7 +1,7 @@
 function particleInit() {
   var init = function () {
     var isMobile = navigator.userAgent && navigator.userAgent.toLowerCase().indexOf("mobile") >= 0;
-    var isSmall = window.innerWidth < 1000;
+    var isSmall = window.innerWidth < 360;
 
     var ps = new ParticleSlider({
       ptlGap: isMobile || isSmall ? 3 : 1,
