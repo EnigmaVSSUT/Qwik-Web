@@ -279,22 +279,31 @@ tbody tr:hover {
         top: 0;
     }
     table tbody tr td:nth-child(1):before {
-        content: "Date";
+        content: "Name:";
     }
     table tbody tr td:nth-child(2):before {
-        content: "Order ID";
+        content: "Date:";
     }
     table tbody tr td:nth-child(3):before {
-        content: "Name";
+        content: "Email-id:";
     }
     table tbody tr td:nth-child(4):before {
-        content: "Price";
+        content: "Year:";
     }
     table tbody tr td:nth-child(5):before {
-        content: "Quantity";
+        content: "Branch:";
     }
     table tbody tr td:nth-child(6):before {
-        content: "Total";
+        content: "Knowledge:";
+    }
+    table tbody tr td:nth-child(7):before {
+        content: "Preferred Mode:";
+    }
+    table tbody tr td:nth-child(8):before {
+        content: "Number:";
+    }
+    table tbody tr td:nth-child(9):before {
+        content: "Expectations:";
     }
     .column4,
     .column5,
