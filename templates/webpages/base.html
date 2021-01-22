@@ -47,16 +47,18 @@
 
 <body>
   {% include "webpages/navbar.html" %}
-  {% if messages %}
-    {% for message in messages %}
-      <div class="mt-5 alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-        {{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    {% endfor %}
-  {% endif %}
+  <div class="mt-5 pt-4" style="position: absolute;top: 10px;right: 17px; z-index: 100;">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="mt-5 alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
   {% block content %}
   {% endblock %}
 
@@ -100,11 +102,11 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.html#about">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.html#portfolio">Our Projects</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home' %}">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home' %}#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'events' %}">Events</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'team' %}">Our Team</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home' %}#portfolio">Our Projects</a></li>
             </ul>
           </div>
 

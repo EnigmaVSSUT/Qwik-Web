@@ -19,7 +19,7 @@ a {
 
 a:hover {
   color: #74c92d;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
 #header {
   background: rgba(0, 0, 0, 0.75);
   transition: all 0.5s;
-  z-index: 997;
+  z-index: 98;
   padding: 15px 0;
 }
 
@@ -135,6 +135,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
   color: #fff;
+  text-decoration:none;
 }
 
 .nav-menu .drop-down ul {
@@ -172,6 +173,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
   color: #34cc43;
+  text-decoration:none;
 }
 
 .nav-menu .drop-down > a:after {
@@ -247,7 +249,7 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   top: 18px;
   right: 15px;
-  z-index: 9998;
+  z-index: 100;
   border: 0;
   background: none;
   font-size: 24px;
@@ -268,7 +270,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 15px;
   bottom: 15px;
   left: 15px;
-  z-index: 9999;
+  z-index: 200;
   overflow-y: auto;
   background: #fff;
   transition: ease-in-out 0.2s;
@@ -326,7 +328,7 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-nav-overly {
   width: 100%;
   height: 100%;
-  z-index: 9997;
+  z-index: 99;
   top: 0;
   left: 0;
   position: fixed;
