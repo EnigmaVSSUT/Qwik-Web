@@ -1,0 +1,80 @@
+{% extends "webpages/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1>WEB DEVELOPMENT</h1>
+    <img class="domain-img" src="{% static 'assets/img/domain/web.jpg' %}" alt="webdev">
+    <p class="description">Web development refers to the building of website that cater to fulfilling various needs, adds value to an existing business. Get drawn to our wonderful UI &UX and think forward to start your journey in this domain.</p>
+  </div>
+
+  {% comment %}<!-- ======= Projects Section ======= -->
+  <section id="portfolio" class="portfolio section-bg">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Projects</h2>
+        <p>Enigma is a storehouse of ideas and innovation where every member is indulged is creating a technology for the betterment of society. <br>
+Let's have a look at some of those projects!!
+</p>
+      </div>
+
+
+      <div class="row portfolio-container">
+
+
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <!-- <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Web 2</h4>
+              <p>Web</p>
+              <!-- <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <!-- <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div> -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+  </section><!-- End Projects Section -->{% endcomment %}
+  {% include "webpages/projects.html" %}
+
+
+{% endblock %}
