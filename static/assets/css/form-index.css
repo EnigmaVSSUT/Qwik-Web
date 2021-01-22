@@ -1,14 +1,13 @@
 .modal-content {
-    background-color:#141e30;
+    background-color: #141e30;
     box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
 }
 
 .modal-title {
-    
     padding: 0;
     color: #fff;
-  text-align: center;
+    text-align: center;
 }
 
 .box .user-box {
@@ -17,25 +16,25 @@
 
 .box .user-box input {
     width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  background: transparent;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
 }
 
 .box .user-box label {
-  position: absolute;
-  top:0;
-  left: 0;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  pointer-events: none;
-  transition: .5s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
 }
 
 /* .box .user-box input:focus~label,
@@ -68,16 +67,11 @@
     border: none;
 }
 
-
-
 .box button:hover {
     background: #03e9f4;
-  color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #03e9f4,
-              0 0 25px #03e9f4,
-              0 0 50px #03e9f4,
-              0 0 100px #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
 }
 
 .box button span {
@@ -169,7 +163,7 @@ select {
     padding: 10px 10px;
     font-size: 16px;
     color: white;
-    background-color:transparent;
+    background-color: transparent;
     margin-bottom: 10px;
     padding-bottom: 20px;
     box-sizing: border-box;
@@ -177,12 +171,12 @@ select {
     border: none;
     border-bottom: 1px solid rgb(240, 237, 241);
 }
-select option{
+
+select option {
     color: white !important;
-    background-color:rgba(0,0,0,.5);
-  }
-  option .sel{
-      color:#03e9f4 !important ;
-  }
-    
-   
+    background-color: rgba(0, 0, 0, .5);
+}
+
+option .sel {
+    color: #03e9f4 !important;
+}
