@@ -19,7 +19,7 @@ a {
 
 a:hover {
   color: #74c92d;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
