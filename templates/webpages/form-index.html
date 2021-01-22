@@ -1,108 +1,122 @@
-{% load static %}
-{% load crispy_forms_tags %}
+{% load static %} {% load crispy_forms_tags %}
 <!DOCTYPE html>
-<html lang = "en">
-<head>
-<meta charset="UTF-8">
-<title>Register here</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Register here</title>
 
-<link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/apple-touch-icon.png' %}">
-<link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/img/favicon-32x32.png' %}">
-<link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicon-16x16.png' %}">
-<link rel="manifest" href="{% static 'assets/img/site.webmanifest' %}">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{% static 'assets/img/apple-touch-icon.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{% static 'assets/img/favicon-32x32.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{% static 'assets/img/favicon-16x16.png' %}"
+    />
+    <link rel="manifest" href="{% static 'assets/img/site.webmanifest' %}" />
 
- <!-- bootstrap -->
-<link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- bootstrap -->
+    <link
+      href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
 
+    <link href="{% static 'assets/css/form-index.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <div>
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'events' %}">Back</a>
+      </nav>
 
-<link href="{% static 'assets/css/form-index.css' %}" rel="stylesheet">
-</head>
-<body>
-  <div>
-    <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="{% url 'events' %}">Back</a>
-</nav>
+      <div class="box">
+        <h2>Register here</h2>
+        <form method="POST">
+          {% csrf_token %} {% comment %} {{ form|crispy}} {% endcomment %}
+          <div class="user-box">
+            <input type="text" name="name" required id="id_name" />
+            <label>Name</label>
+          </div>
+          <div class="user-box">
+            <input type="email" name="email" required id="id_name" />
+            <label>Email-ID</label>
+          </div>
 
-<div class="box">
-  <h2>Register here</h2>
-  <form method="POST">
-    {% csrf_token %}
-        {% comment %} {{ form|crispy}} {% endcomment %}
-    <div class="user-box">
+          <div class="user-box">
+            <input type="text" name="whatsapp_no" required id="id_name" />
+            <label>Whatsapp Number</label>
+          </div>
 
-      <input type="text" name="name" required id="id_name">
-      <label>Name</label>
+          <div class="user-box" style="padding-bottom: 20px">
+            <select name="year">
+              <label>
+                <option disabled="disabled" selected="selected">
+                  Year
+                </option></label
+              >
+              <option>First</option>
+              <option>Second</option>
+              <option>Pre-Final</option>
+              <option>Final</option>
+            </select>
+          </div>
+
+          <div class="user-box">
+            <input type="text" name="branch" required id="id_name" />
+            <label>Branch</label>
+          </div>
+
+          <div class="user-box" style="padding-bottom: 20px">
+            <select name="knowledge">
+              <option disabled="disabled" selected="selected">
+                Level of knowledge in Programming
+              </option>
+              <option>Totally new to programming</option>
+              <option>
+                Have somewhat knowledge of C but want to master it
+              </option>
+              <option>Knows other language but want to learn C</option>
+              <option>A total pro at programming</option>
+            </select>
+          </div>
+
+          <div class="user-box">
+            <input type="text" name="expectations" required id="id_firstname" />
+            <label>Your expectations from us</label><br />
+          </div>
+
+          <div class="user-box" style="padding-bottom: 20px">
+            <select name="mode_comm">
+              <option disabled="disabled" selected="selected">
+                Preffered mode of communication
+              </option>
+              <option>Whatsapp</option>
+              <option>Telegram</option>
+              <option>Discord</option>
+            </select>
+          </div>
+          <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            REGISTER
+          </a>
+        </form>
+      </div>
     </div>
-    <div class="user-box">
-      <input type="email" name="email" required id="id_name">
-      <label>Email-ID</label>
-    </div>
-
-  <div class="user-box">
-      <input type="text" name="whatsapp_no" required id="id_name">
-      <label>Whatsapp Number</label>
-    </div>
-
-
-
-    <div class="user-box" style="padding-bottom: 20px;">
-        <select name="year">
-         <label> <option disabled="disabled" selected="selected">Year</option></label>
-        <option>First</option>
-        <option>Second</option>
-        <option>Third</option>
-        <option>Final</option>
-       </select>
-      </div>
-
-
-      <div class="user-box">
-      <input type="text" name="branch" required id="id_name">
-      <label>Branch</label>
-      </div>
-
-      <div class="user-box  " style="padding-bottom: 20px;">
-        <select name="knowledge">
-          <option disabled="disabled" selected="selected">Level of knowledge in Programming</option>
-        <option>Totally new to programming</option>
-        <option>Have somewhat knowledge of C but want to master it</option>
-        <option>Knows other language but want to learn C</option>
-        <option>A total pro at programming</option>
-
-
-       </select>
-      </div>
-
-
-
-      <div class="user-box">
-      <input type="text" name="expectations" required id="id_firstname">
-      <label>Your expectations from us</label><br>
-      </div>
-
-      <div class="user-box" style="padding-bottom: 20px;">
-        <select name="mode_comm">
-          <option disabled="disabled" selected="selected">Preffered mode of communication</option>
-        <option>Whatsapp</option>
-        <option>Telegram</option>
-        <option>Discord</option>
-
-       </select>
-      </div>
-       <a href="#">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      REGISTER
-    </a>
-  </form>
-</div>
-
-</div>
-</body>
-<!-- bootstrap script -->
-<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  </body>
+  <!-- bootstrap script -->
+  <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
-<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 </html>

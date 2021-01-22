@@ -143,7 +143,7 @@ def lift_off_c_registration(request):
                 return redirect('events')
             else:
                 messages.warning(
-                    request, 'Oops! you could not be registred successfully.')
+                    request, 'Oops! you could not be registered successfully.')
                 return redirect('events')
         else:
             new_form=LiftOffCRegistration()
