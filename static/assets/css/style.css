@@ -22,12 +22,7 @@ a:hover {
   text-decoration: none !important;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto", sans-serif;
 }
 
@@ -133,18 +128,14 @@ h6 {
   transition: all 0.3s ease-in-out 0s;
 }
 
-.nav-menu a:hover:before,
-.nav-menu li:hover > a:before,
-.nav-menu .active > a:before {
+.nav-menu a:hover:before, .nav-menu li:hover > a:before, .nav-menu .active > a:before {
   visibility: visible;
   width: 100%;
 }
 
-.nav-menu a:hover,
-.nav-menu .active > a,
-.nav-menu li:hover > a {
+.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
   color: #fff;
-  text-decoration: none;
+  text-decoration:none;
 }
 
 .nav-menu .drop-down ul {
@@ -180,11 +171,9 @@ h6 {
   color: #2a2a2a;
 }
 
-.nav-menu .drop-down ul a:hover,
-.nav-menu .drop-down ul .active > a,
-.nav-menu .drop-down ul li:hover > a {
+.nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
   color: #34cc43;
-  text-decoration: none;
+  text-decoration:none;
 }
 
 .nav-menu .drop-down > a:after {
@@ -306,9 +295,7 @@ h6 {
   outline: none;
 }
 
-.mobile-nav a:hover,
-.mobile-nav .active > a,
-.mobile-nav li:hover > a {
+.mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
   color: #34cc43;
   text-decoration: none;
 }
@@ -385,7 +372,7 @@ h6 {
 }
 
 #hero .carousel-item::before {
-  content: "";
+  content: '';
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0;
@@ -454,14 +441,12 @@ h6 {
   transform: translate3d(0, 0, 0);
 }
 
-#hero .carousel-control-prev,
-#hero .carousel-control-next {
+#hero .carousel-control-prev, #hero .carousel-control-next {
   width: 10%;
   opacity: 1;
 }
 
-#hero .carousel-control-next-icon,
-#hero .carousel-control-prev-icon {
+#hero .carousel-control-next-icon, #hero .carousel-control-prev-icon {
   background: none;
   font-size: 36px;
   line-height: 1;
@@ -474,8 +459,7 @@ h6 {
   color: rgba(255, 255, 255, 0.5);
 }
 
-#hero .carousel-control-next-icon:hover,
-#hero .carousel-control-prev-icon:hover {
+#hero .carousel-control-next-icon:hover, #hero .carousel-control-prev-icon:hover {
   background: rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.8);
 }
@@ -488,7 +472,7 @@ h6 {
   width: 12px;
   height: 12px;
   border-radius: 50px;
-  opacity: 0.6;
+  opacity: .6;
   transition: 0.3s;
 }
 
@@ -532,8 +516,7 @@ h6 {
   #hero p {
     width: 60%;
   }
-  #hero .carousel-control-prev,
-  #hero .carousel-control-next {
+  #hero .carousel-control-prev, #hero .carousel-control-next {
     width: 5%;
   }
 }
@@ -570,7 +553,7 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
-.about {
+.about{
   background: white !important;
   position: relative;
 }
@@ -759,7 +742,7 @@ section {
 }
 
 .services .title::after {
-  content: "";
+  content: '';
   position: absolute;
   display: block;
   width: 50px;
@@ -811,9 +794,7 @@ section {
   box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
 }
 
-.why-us .box:hover span,
-.why-us .box:hover h4,
-.why-us .box:hover p {
+.why-us .box:hover span, .why-us .box:hover h4, .why-us .box:hover p {
   color: #fff;
 }
 
@@ -845,8 +826,7 @@ section {
   border-radius: 3px;
 }
 
-.portfolio #portfolio-flters li:hover,
-.portfolio #portfolio-flters li.filter-active {
+.portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
   color: #fff;
   background: #34cc43;
 }
@@ -1108,11 +1088,7 @@ section {
   background: #34cc43;
 }
 
-.pricing .recommended h3,
-.pricing .recommended h4,
-.pricing .recommended h4 span,
-.pricing .recommended ul,
-.pricing .recommended ul .na {
+.pricing .recommended h3, .pricing .recommended h4, .pricing .recommended h4 span, .pricing .recommended ul, .pricing .recommended ul .na {
   color: #fff;
 }
 
@@ -1170,8 +1146,7 @@ section {
   color: #9cdc66;
 }
 
-.faq .faq-list .icon-show,
-.faq .faq-list .icon-close {
+.faq .faq-list .icon-show, .faq .faq-list .icon-close {
   font-size: 24px;
   position: absolute;
   right: 0;
@@ -1224,8 +1199,7 @@ section {
   color: #34cc43;
 }
 
-.contact .contact-info address,
-.contact .contact-info p {
+.contact .contact-info address, .contact .contact-info p {
   margin-bottom: 0;
   color: #000;
 }
@@ -1246,9 +1220,7 @@ section {
   color: #34cc43;
 }
 
-.contact .contact-address,
-.contact .contact-phone,
-.contact .contact-email {
+.contact .contact-address, .contact .contact-phone, .contact .contact-email {
   margin-bottom: 20px;
 }
 
@@ -1302,8 +1274,7 @@ section {
   animation: animate-loading 1s linear infinite;
 }
 
-.contact .php-email-form input,
-.contact .php-email-form textarea {
+.contact .php-email-form input, .contact .php-email-form textarea {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
@@ -1312,8 +1283,7 @@ section {
   border-radius: 4px;
 }
 
-.contact .php-email-form input:focus,
-.contact .php-email-form textarea:focus {
+.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
   border-color: #34cc43;
 }
 
@@ -1353,9 +1323,7 @@ section {
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
   }
-  .contact .contact-address,
-  .contact .contact-phone,
-  .contact .contact-email {
+  .contact .contact-address, .contact .contact-phone, .contact .contact-email {
     padding: 20px 0;
   }
 }
@@ -1422,8 +1390,7 @@ section {
   z-index: 1;
 }
 
-.portfolio-details .portfolio-details-carousel .owl-nav,
-.portfolio-details .portfolio-details-carousel .owl-dots {
+.portfolio-details .portfolio-details-carousel .owl-nav, .portfolio-details .portfolio-details-carousel .owl-dots {
   margin-top: 5px;
   text-align: left;
 }
