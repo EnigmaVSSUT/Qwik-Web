@@ -204,19 +204,19 @@ def all_regs(request):
     return render(request, 'webpages/all_mentee_regs.html', context)
 
 def app_dev(request):
-    return render(request,'webpages/app.html')
+    return render(request,'webpages/app.html',{'title':'APP DEVELOPMENT'})
 
 def ar_vr(request):
-    return render(request,'webpages/ar_vr.html')
+    return render(request,'webpages/ar_vr.html',{'title':'VIRTUAL REALITY'})
 
 def grp_des(request):
-    return render(request,'webpages/grp-des.html')
+    return render(request,'webpages/grp-des.html',{'title':'GRAPHIC DESIGN'})
 
 def cp(request):
-    return render(request,'webpages/cp.html')
+    return render(request,'webpages/cp.html',{'title':'COMPETITIVE PROGRAMMING'})
 
 def ml_ai(request):
-    return render(request,'webpages/ml_ai.html')
+    return render(request,'webpages/ml_ai.html',{'title':'MACHINE LEARNING/ARTIFICIAL INTELLIGENCE'})
 
 def web_dev(request):
-    return render(request,'webpages/web_dev.html')
+    return render(request,'webpages/web_dev.html',{'title':'WEB DEVELOPMENT'})
