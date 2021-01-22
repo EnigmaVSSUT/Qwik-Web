@@ -47,16 +47,18 @@
 
 <body>
   {% include "webpages/navbar.html" %}
-  {% if messages %}
-    {% for message in messages %}
-      <div class="mt-5 alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-        {{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    {% endfor %}
-  {% endif %}
+  <div class="mt-5 pt-4" style="position: absolute;top: 10px;right: 17px; z-index: 100;">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="mt-5 alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
   {% block content %}
   {% endblock %}
 
