@@ -28,7 +28,7 @@
 }
 
 .box .user-box label {
-    position: absolute;
+  position: absolute;
   top:0;
   left: 0;
   padding: 10px 0;
@@ -38,8 +38,14 @@
   transition: .5s;
 }
 
-.box .user-box input:focus~label,
+/* .box .user-box input:focus~label,
 .box .user-box input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+} */
+.box .user-box input:focus~label{
     top: -20px;
     left: 0;
     color: #03e9f4;
