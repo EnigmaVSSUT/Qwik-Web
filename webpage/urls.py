@@ -8,7 +8,7 @@ urlpatterns = [
     path('user-profile/', user_profile, name='user-profile'),
     path('team/', team, name='team'),
     path('events/', events, name='events'),
-    path('event-registration/', event_registration, name='event-registration'),
+    # path('event-registration/', event_registration, name='event-registration'),
     path('form-index/',lift_off_c_registration,name='form-index'),
     path('all-registrations-liftoffc/', all_regs, name='all-registrations-liftoffc')
 ]
