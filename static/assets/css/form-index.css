@@ -171,8 +171,12 @@ select {
     border: none;
     border-bottom: 1px solid rgb(240, 237, 241);
 }
-select::-ms-expand { 
-   background-color: black;
-}
+select option{
+    color: white !important;
+    background-color:rgba(0,0,0,.5);
+  }
+  option .sel{
+      color:#03e9f4 !important ;
+  }
     
    
