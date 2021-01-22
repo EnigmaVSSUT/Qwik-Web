@@ -46,7 +46,7 @@
     font-size: 12px;
 }
 
-.box form a {
+.box form button {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -57,24 +57,14 @@
     overflow: hidden;
     transition: .5s;
     margin-top: 40px;
-    letter-spacing: 4px
+    letter-spacing: 4px;
+    background-color: transparent;
+    border: none;
 }
 
-.box form button {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    color: #66ff00;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: .5s;
-    margin-top: 40px;
-    letter-spacing: 4px
-}
 
-.box a:hover {
+
+.box button:hover {
     background: #03e9f4;
   color: #fff;
   border-radius: 5px;
@@ -84,12 +74,12 @@
               0 0 100px #03e9f4;
 }
 
-.box a span {
+.box button span {
     position: absolute;
     display: block;
 }
 
-.box a span:nth-child(1) {
+.box button span:nth-child(1) {
     top: 0;
     left: -100%;
     width: 100%;
@@ -108,7 +98,7 @@
     }
 }
 
-.box a span:nth-child(2) {
+.box button span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
@@ -128,7 +118,7 @@
     }
 }
 
-.box a span:nth-child(3) {
+.box button span:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
@@ -148,7 +138,7 @@
     }
 }
 
-.box a span:nth-child(4) {
+.box button span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;
@@ -180,6 +170,9 @@ select {
     box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
     border: none;
     border-bottom: 1px solid rgb(240, 237, 241);
+}
+select::-ms-expand { 
+   background-color: black;
 }
     
    
