@@ -3,44 +3,248 @@
 {% load crispy_forms_tags %}
 {% block extra_head %}
  <!-- Yahan pe daal de jitna bhi extra CSS hai -->
-
+<link href="{% static 'assets/css/form-index.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/events.css' %}" rel="stylesheet">
 {% endblock %}
 {% block content %}
+
 <main id="main">
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team">
-        <div class="container">
+        <div class="container upcoming-events">
+            <h1 class="text-center">UPCOMING EVENTS</h1>
+            <div class="jumbotron">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-4 left-side">
+                        <img class="img-thumbnail upcoming-event-image" src="https://images.unsplash.com/photo-1603330358263-3a0031a40c4d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=972&q=80" alt="Card image cap" >
+                    </div>
+                    <div class="col-12 col-md-8 right-side pt-3 pt-md-0">
+                        <div>
+                            <h3 class="event-title text-center">Lift-Off-C</h5>
+                            <p class="date text-center" ><strong>Date</strong> - 28th Jan 2021</p>
+                            <p class="description">Eagerly waiting to get started with programming, but don’t know how to start? Worry not, ‘cuz we got you covered.</p>
+                            <p class="description">CodeChef VSSUT Chapter, in collaboration with Enigma and DSC VSSUT, brings you the most awaited programme – LiftOff C which aims to help you get started with C programming.</p>
+                            <p class="description">Who can register? Anyone with a knack for learning. Whether you are totally new to programming or already have some knowledge about it, this is for you.</p>
+                            <p class="description">What will happen in this? We will guide you from the basics of programming to advanced topics so you can master in it. We will also conduct contests and fun quizzes with questions designed especially for you to try the skills you have learnt during the programme. </p>
+                            <p class="description">So, how will this work? Interested students will be divided into small groups and be assigned a mentor who will guide you, provide you with materials to study from, will conduct regular doubt clearing sessions and will always be there to help you whenever you get stuck. Sounds awesome, right? </p>
+                            <p class="description">What will you get from it? This will be a 4-6 weeks programme, by the end of which you can proudly say that you have mastered the skill of programming. Wait, there’s more. The students who will successfully complete the programme and participate in all the contests will be awarded with an official certificate which you will be able to show off to whoever you want. 
+                                Exciting, right? Go ahead and fill out this form to register yourselves in this programme to LiftOff with C with us!</p>
+                            <div class="button-area">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                                  Register Now
+                                </button>
 
-            <div class="section-title">
-              <h2>A Cybernated Escapade</h2>
-                
-            </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                  <div style={background: rgba(0, 0, 0, .5);} class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Register for the program</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="box">
+                                          <form method="POST">
+                                            {% csrf_token %}
+                                            {% comment %} <div class="form-group">
+                                                <div>
+                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
+                                                </div>
+                                            </div> {% endcomment %}
+                                              {% comment %} {{ form|crispy }} {% endcomment %}
+                                            <div class="user-box">
 
-            <div class="row justify-content-center">
-                <div class="col-xl-8 col-lg-10 col-md-10">
-                  <div class="member">
-                      <img src="{% static 'assets/img/orientation_horizontal.jpeg' %}" class="img-fluid" alt="">
-                      <div class="member-info">
-                      <div class="member-info-content">
-                          <span>Book your presence by registering  in the button below.</span>
-                          <span>Link to the event is available now.</span>
-                          <!-- <span>Total Attending: {{ total }}</span>
-                          <span> - <span>
-                          <a href="{% url 'event-registration' %}"><button  type="button" class="btn btn-success">Register</button></a> -->
-                      </div>
-                      </div>
-                  </div>
-                </div>
-                <div class="col-xl-8 col-lg-10 col-md-10 mob">
-                    <div class="member-info-content justify-content-center">
-                        <span>Total Attending: {{ total }}</span><br>
-                        <a href="https://youtu.be/ggFlb8wQzDc"><button  type="button" class="btn btn-success mt-1">Join Now</button></a>
+                                              <input type="text" name="name" required id="id_name">
+                                              <label>Name</label>
+                                            </div>
+                                            <div class="user-box">
+                                              <input type="email" name="email" required id="id_name">
+                                              <label>Email-ID</label>
+                                            </div>
+
+                                            <div class="user-box">
+                                              <input type="text" name="whatsapp_no" required id="id_name">
+                                              <label>Whatsapp Number</label>
+                                            </div>
+                                            <div class="user-box" style="padding-bottom: 20px;">
+                                                <select name="year">
+                                                <label> <option disabled="disabled" selected="selected">Year</option></label>
+                                                <option>First</option>
+                                                <option>Second</option>
+                                                <option>Third</option>
+                                                <option>Final</option>
+                                              </select>
+                                              </div>
+
+
+                                              <div class="user-box">
+                                              <input type="text" name="branch" required id="id_name">
+                                              <label>Branch</label>
+                                              </div>
+
+                                              <div class="user-box  " style="padding-bottom: 20px;">
+                                                <select name="knowledge">
+                                                  <option disabled="disabled" selected="selected">Level of knowledge in Programming</option>
+                                                <option>Totally new to programming</option>
+                                                <option>Have somewhat knowledge of C but want to master it</option>
+                                                <option>Knows other language but want to learn C</option>
+                                                <option>A total pro at programming</option>
+                                              </select>
+                                              </div>
+                                              <div class="user-box">
+                                              <input type="text" name="expectations" required id="id_firstname">
+                                              <label>Your expectations from us</label><br>
+                                              </div>
+                                              <div class="user-box" style="padding-bottom: 20px;">
+                                                <select name="mode_comm">
+                                                  <option disabled="disabled" selected="selected">Preffered mode of communication</option>
+                                                <option>Whatsapp</option>
+                                                <option>Telegram</option>
+                                                <option>Discord</option>
+                                              </select>
+                                              </div>
+                                            <button type="submit">REGISTER</button>
+                                          </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
-        <hr>
-    </section><!-- End Team Section -->
-</main>
+
+        <hr class="hr" >
+
+        <div class="container previous-events">
+            <h1 class="text-center">PAST EVENTS</h1>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6">
+                    <div class="jumbotron">
+                        <div class="row">
+                            <div class="col-12 col-md-5">
+                                <img class="img-thumbnail" src="{% static 'assets/img/events/codeit.jpeg' %}" alt="" >
+                            </div>
+                            <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
+                                <div>
+                                    <h3 class="event-title text-center text-md-left">CODEIT</h5>
+                                    <p class="date text-center text-md-left" style="margin-bottom: 3px;"><strong>Online</strong> - 8th March 2020</p>
+                                    <p class="date text-center text-md-left" style="margin-bottom: 3px;"><strong>Onsite</strong> - 13th March 2020</p>
+                                    <p class="description" style="line-height: 1.4;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed error ipsum nam neque iste, dolore numquam, explicabo maxime doloremque quasi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="jumbotron">
+                        <div class="row">
+                            <div class="col-12 col-md-5">
+                                <img class="img-thumbnail" src="{% static 'assets/img/events/gdg-workshop.jpeg' %}" alt="" >
+                            </div>
+                            <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
+                                <div>
+                                    <h3 class="event-title text-center text-md-left">GDG WORKSHOP</h5>
+                                    <p class="date text-center text-md-left" style="margin-bottom: 3px;"><strong>Date</strong> - 13th March 2020</p>
+                                    <p class="description" style="line-height: 1.4;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed error ipsum nam neque iste, dolore numquam, explicabo maxime doloremque quasi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="jumbotron">
+                        <div class="row">
+                            <div class="col-12 col-md-5">
+                                <img class="img-thumbnail" src="{% static 'assets/img/events/hacktober.jpeg' %}" alt="" >
+                            </div>
+                            <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
+                                <div>
+                                    <h3 class="event-title text-center text-md-left">HACKTOBER FEST</h5>
+                                    <p class="date text-center text-md-left" style="margin-bottom: 3px;"><strong>Date</strong> - 2nd October 2020</p>
+                                    <p class="description" style="line-height: 1.4;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed error ipsum nam neque iste, dolore numquam, explicabo maxime doloremque quasi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="jumbotron">
+                        <div class="row">
+                            <div class="col-12 col-md-5">
+                                <img class="img-thumbnail" src="{% static 'assets/img/events/hacktober-opensource.jpeg' %}" alt="" >
+                            </div>
+                            <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
+                                <div>
+                                    <h3 class="event-title text-center text-md-left">HACKTOBER - OPEN SOURCE</h5>
+                                    <p class="date text-center text-md-left" style="margin-bottom: 3px;"><strong>Date</strong> - 2nd October 2020</p>
+                                    <p class="description" style="line-height: 1.4;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed error ipsum nam neque iste, dolore numquam, explicabo maxime doloremque quasi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="jumbotron">
+                        <div class="row">
+                            <div class="col-12 col-md-5">
+                                <img class="img-thumbnail" src="{% static 'assets/img/events/hacktober-gitandgithub.jpeg' %}" alt="" >
+                            </div>
+                            <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
+                                <div>
+                                    <h3 class="event-title text-center text-md-left">HACKTOBER - GIT & GITHUB</h5>
+                                        <p class="date text-center text-md-left" style="margin-bottom: 3px;"><strong>Date</strong> - 11th October 2020</p>
+                                        <p class="description" style="line-height: 1.4;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed error ipsum nam neque iste, dolore numquam, explicabo maxime doloremque quasi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="jumbotron">
+                        <div class="row">
+                            <div class="col-12 col-md-5">
+                                <img class="img-thumbnail" src="{% static 'assets/img/events/hacktober-gsoc.jpeg' %}" alt="" >
+                            </div>
+                            <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
+                                <div>
+                                    <h3 class="event-title text-center text-md-left">HACKTOBER - GSOC</h5>
+                                        <p class="date text-center text-md-left" style="margin-bottom: 3px;"><strong>Date</strong> - 2nd October 2020</p>
+                                        <p class="description" style="line-height: 1.4;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed error ipsum nam neque iste, dolore numquam, explicabo maxime doloremque quasi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 {% endblock %}

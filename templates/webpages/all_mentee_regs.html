@@ -1,0 +1,86 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Table V01</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="{% static 'assets/stats/images/icons/favicon.ico' %}" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/stats/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/stats/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/stats/vendor/animate/animate.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/stats/vendor/select2/select2.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/stats/vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/stats/css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/stats/css/main.css' %}">
+    <!--===============================================================================================-->
+</head>
+
+<body>
+
+    <div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <h3>Total: {{ all_count }}</h3>
+                <div class="table100">
+                    <table>
+                        <thead>
+                            <tr class="table100-head">
+                                <th class="column3">Name</th>
+                                <th class="column1">Date</th>
+                                <th class="column2">Email-id</th>
+                                <th class="column4">Year</th>
+                                <th class="column5">Branch</th>
+                                <th class="column6">Knowledge</th>
+                                <th class="column6">Communication Mode</th>
+                                <th class="column6">Number</th>
+                                <th class="column6">Expectations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          {% for mentee in all %}
+                            <tr>
+                                <td class="column3">{{ mentee.name }}</td>
+                                <td class="column1">{{ mentee.timestamp|date:'d-m-Y' }} {{ mentee.timestamp|date:'H:i' }}</td>
+                                <td class="column2">{{ mentee.email }}</td>
+                                <td class="column4">{{ mentee.year }}</td>
+                                <td class="column5">{{ mentee.branch }}</td>
+                                <td class="column6">{{ mentee.knowledge }}</td>
+                                <td class="column6">{{ mentee.mode_comm }}</td>
+                                <td class="column6">{{ mentee.whatsapp_no }}</td>
+                                <td class="column6">{{ mentee.expectations }}</td>
+                            </tr>
+                          {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--===============================================================================================-->
+    <script src="{% static 'assets/stats/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+    <!--===============================================================================================-->
+    <script src="{% static 'assets/stats/vendor/bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'assets/stats/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!--===============================================================================================-->
+    <script src="{% static 'assets/stats/vendor/select2/select2.min.js' %}"></script>
+    <!--===============================================================================================-->
+    <script src="{% static 'assets/stats/js/main.js' %}"></script>
+
+</body>
+
+</html>

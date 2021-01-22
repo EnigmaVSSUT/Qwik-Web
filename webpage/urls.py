@@ -1,5 +1,7 @@
 from django.urls import path
-from .views import home, user_profile, team, events, event_registration,lift_off_c_registration
+from .views import (home, user_profile, team, events, 
+                    event_registration,lift_off_c_registration,
+                    all_regs)
 
 urlpatterns = [
     path('', home, name='home'),
@@ -7,5 +9,6 @@ urlpatterns = [
     path('team/', team, name='team'),
     path('events/', events, name='events'),
     path('event-registration/', event_registration, name='event-registration'),
-    path('form-index/',lift_off_c_registration,name='form-index')
+    path('form-index/',lift_off_c_registration,name='form-index'),
+    path('all-registrations-liftoffc/', all_regs, name='all-registrations-liftoffc')
 ]

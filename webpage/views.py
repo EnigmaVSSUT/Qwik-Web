@@ -125,7 +125,7 @@ def lift_off_c_registration(request):
         if request.method == 'POST':
             new_form = LiftOffCRegistrationForm()
             if new_form.is_valid():
-                new_mentee = LiftOffCRegistration()
+                new_mentee = LiftOffCRegistration(request.POST)
                 new_mentee.name = new_form.cleaned_data.get('name')
                 new_mentee.email = new_form.cleaned_data.get('email')
                 new_mentee.whatsapp_no = new_form.cleaned_data.get(
@@ -136,7 +136,7 @@ def lift_off_c_registration(request):
                 new_mentee.expectations = new_form.cleaned_data.get(
                     'expectations')
                 new_mentee.mode_comm = new_form.cleaned_data.get('mode_comm')
-                new_mentee.slug = slugify(new_mentee.name + '2021')
+                new_mentee.slug = slugify(new_mentee.email + '2021')
                 new_mentee.save()
                 messages.success(
                     request, 'You have successfully registered!')
@@ -158,8 +158,47 @@ def lift_off_c_registration(request):
 
 
 def events(request):
-    total = EventRegistration.objects.all().count()
+    try:
+        if request.method == 'POST':
+            new_form = LiftOffCRegistrationForm(request.POST)
+            if new_form.is_valid():
+                new_mentee = LiftOffCRegistration()
+                new_mentee.name = new_form.cleaned_data.get('name')
+                new_mentee.email = new_form.cleaned_data.get('email')
+                new_mentee.whatsapp_no = new_form.cleaned_data.get(
+                    'whatsapp_no')
+                new_mentee.year = new_form.cleaned_data.get('year')
+                new_mentee.branch = new_form.cleaned_data.get('branch')
+                new_mentee.knowledge=new_form.cleaned_data.get('knowledge')
+                new_mentee.expectations = new_form.cleaned_data.get(
+                    'expectations')
+                new_mentee.mode_comm = new_form.cleaned_data.get('mode_comm')
+                new_mentee.slug = slugify(new_mentee.email + 'cc2021')
+                new_mentee.save()
+                messages.success(
+                    request, 'You have successfully registered!')
+                return redirect('events')
+            else:
+                print(new_form.errors)
+                messages.warning(
+                    request, 'Oops! you could not be registred successfully.')
+                return redirect('events')
+        else:
+            new_form=LiftOffCRegistration()
+            context={
+                'form':new_form
+            }
+            return render(request,'webpages/events.html',context)
+
+    except:
+        messages.warning(request, 'You Have already registered!')
+        return redirect('events')
+    
+def all_regs(request):
+    all = LiftOffCRegistration.objects.all()
+    all_count = LiftOffCRegistration.objects.all().count()
     context = {
-        'total': total
+        'all': all,
+        'all_count': all_count
     }
-    return render(request, 'webpages/events.html', context)
+    return render(request, 'webpages/all_mentee_regs.html', context)

@@ -94,12 +94,12 @@ class LiftOffCRegistration(models.Model):
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     whatsapp_no = models.CharField(max_length=15)
-    year = models.CharField(choices=YEAR_CHOICES_NEW, max_length=20)
+    year = models.CharField(max_length=20)
     branch = models.CharField(max_length=100)
-    knowledge=models.CharField(choices=KNOWLEDGE_CHOICES,max_length=100)
+    knowledge=models.CharField(max_length=100)
     expectations = models.TextField(null=True, blank=True)
-    mode_comm = models.CharField(
-        choices=MODE_COMMUNICATION, max_length=10)
+    mode_comm = models.CharField(max_length=10)
+    timestamp = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(unique=True, max_length=100)
 
     def __str__(self):
