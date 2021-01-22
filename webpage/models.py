@@ -12,15 +12,52 @@ YEAR_CHOICES = [
     ('5', 'Alumni'),
 ]
 
+YEAR_CHOICES_NEW=[
+    ('1', 'First'),
+    ('2', 'Second'),
+    ('3', 'Pre-Final'),
+    ('4', 'Final')
+]
+
+#BRANCH_CHOICES = [
+#    ('CHEMICAL ENGINEERING', 'CHEMICAL ENGINEERING'),
+#    ('CIVIL ENGINEERING', 'CIVIL ENGINEERING'),
+#    ('COMPUTER SCIENCE AND ENGINEERING', 'COMPUTER SCIENCE AND ENGINEERING'),
+#    ('ELECTRICAL ENGINEERING', 'ELECTRICAL ENGINEERING'),
+#    ('ELECTRONICS AND TELECOMMUNICATION ENGINEERING',
+#     'ELECTRONICS AND TELECOMMUNICATION ENGINEERING'),
+#    ('ELECTRICAL AND ELECTRONICS ENGINEERING',
+#    'ELECTRICAL AND ELECTRONICS ENGINEERING'),
+#    ('INFORMATION TECHNOLOGY', 'INFORMATION TECHNOLOGY'),
+#    ('MECHANICAL ENGINEERING', 'MECHANICAL ENGINEERING'),
+#    ('METALLURGY AND MATERIALS ENGINEERING',
+#     'METALLURGY AND MATERIALS ENGINEERING'),
+#    ('PRODUCTION ENGINEERING', 'PRODUCTION ENGINEERING'),
+#]
+
+KNOWLEDGE_CHOICES=[
+    ('Totally new to programming','Totally new to programming'),
+    ('Have somewhat knowledge of C but want to master it','Have somewhat knowledge of C but want to master it'),
+    ('Knows other language but want to learn C','Knows other language but want to learn C'),
+    ('A total pro at programming','A total pro at programming')
+]
+
 DOMAIN_CHOICES = [
 
 ]
 
-GENDER_CHOICES= [
-    ('Male','Male'),
-    ('Female','Female'),
-    ('Other','Other')
+GENDER_CHOICES = [
+    ('Male', 'Male'),
+    ('Female', 'Female'),
+    ('Other', 'Other')
 ]
+
+MODE_COMMUNICATION = [
+    ('WhatsApp', 'WhatsApp'),
+    ('Telegram', 'Telegram'),
+    ('Discord', 'Discord')
+]
+
 
 class Member(models.Model):
     firstname = models.CharField(max_length=100)
@@ -32,9 +69,10 @@ class Member(models.Model):
     facebook = models.CharField(max_length=100, null=True, blank=True)
     instagram = models.CharField(max_length=100, null=True, blank=True)
     others = models.CharField(max_length=100, null=True, blank=True)
-    profile_pic = models.ImageField(upload_to='member_profile_pic', default='default.jpg')
+    profile_pic = models.ImageField(
+        upload_to='member_profile_pic', default='default.jpg')
     slug = models.SlugField(unique=True, max_length=100)
-    
+
 # hhtps:
     def __str__(self):
         return self.firstname
@@ -51,3 +89,18 @@ class EventRegistration(models.Model):
 
     def __str__(self):
         return self.firstname
+
+class LiftOffCRegistration(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    whatsapp_no = models.CharField(max_length=15)
+    year = models.CharField(choices=YEAR_CHOICES_NEW, max_length=20)
+    branch = models.CharField(max_length=100)
+    knowledge=models.CharField(choices=KNOWLEDGE_CHOICES,max_length=100)
+    expectations = models.TextField(null=True, blank=True)
+    mode_comm = models.CharField(
+        choices=MODE_COMMUNICATION, max_length=10)
+    slug = models.SlugField(unique=True, max_length=100)
+
+    def __str__(self):
+        return self.name
