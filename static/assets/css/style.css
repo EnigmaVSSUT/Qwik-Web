@@ -19,7 +19,7 @@ a {
 
 a:hover {
   color: #74c92d;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -135,6 +135,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
   color: #fff;
+  text-decoration:none;
 }
 
 .nav-menu .drop-down ul {
@@ -172,6 +173,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
   color: #34cc43;
+  text-decoration:none;
 }
 
 .nav-menu .drop-down > a:after {
