@@ -34,12 +34,12 @@
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                  <div style={background: rgba(0, 0, 0, .5);} class="modal-dialog" role="document">
-                                    <div class="modal-content">
+                                  <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content" style="z-index: 10;">
                                       <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLongTitle">Register for the program</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="opacity: 1;">
+                                          <span aria-hidden="true" style=color:#fff>&times;</span>
                                         </button>
                                       </div>
                                       <div class="modal-body">
@@ -47,16 +47,48 @@
                                           <form method="POST">
                                             {% csrf_token %}
                                             <div class="user-box">
+                                            {% comment %} <div class="form-group">
+                                                <div>
+                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
+                                                </div>
+                                            </div> {% endcomment %}
+                                              {% comment %} {{ form|crispy }} {% endcomment %}
+                                            <div class="user-box m">
 
                                               <input type="text" name="name" required id="id_name">
                                               <label>Name</label>
                                             </div>
-                                            <div class="user-box">
+                                            <div class="user-box m">
                                               <input type="email" name="email" required id="id_name">
                                               <label>Email-ID</label>
                                             </div>
 
-                                            <div class="user-box">
+                                            <div class="user-box m">
                                               <input type="text" name="whatsapp_no" required id="id_name">
                                               <label>Whatsapp Number</label>
                                             </div>
@@ -80,7 +112,7 @@
                                                 <select name="knowledge">
                                                   <option disabled="disabled" selected="selected">Level of knowledge in Programming</option>
                                                 <option>Totally new to programming</option>
-                                                <option>Have somewhat knowledge of C but want to master it</option>
+                                                <option>Intermediate in C but want to master it</option>
                                                 <option>Knows other language but want to learn C</option>
                                                 <option>A total pro at programming</option>
                                               </select>
@@ -97,7 +129,13 @@
                                                 <option>Discord</option>
                                               </select>
                                               </div>
-                                            <button type="submit">REGISTER</button>
+                                              <a href="#">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                REGISTER
+                                              </a>
                                           </form>
                                         </div>
                                       </div>

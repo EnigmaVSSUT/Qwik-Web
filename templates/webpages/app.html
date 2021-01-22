@@ -1,0 +1,75 @@
+{% extends "webpages/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1>APP DEVELOPMENT</h1>
+    <img class="domain-img" src="{% static 'assets/img/domain/app.png' %}" alt="app_dev">
+    <p class="description">Everybody today is aware of the ease that various apps provide today.Right from games, to classrooms, to shopping and many more.
+Get fascinated by the skillfully designed and user friendly apps, kick-start your journey in the field of  app development with team-ENIGMA.
+</p>
+
+  </div>
+  {% comment %}<!-- ======= Projects Section ======= -->
+  <section id="portfolio" class="portfolio section-bg">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Projects</h2>
+        <p>Enigma is a storehouse of ideas and innovation where every member is indulged is creating a technology for the betterment of society. <br>
+Let's have a look at some of those projects!!
+</p>
+      </div>
+
+
+      <div class="row portfolio-container">
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <!-- <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 2</h4>
+              <p>App</p>
+              <!-- <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 3</h4>
+              <p>App</p>
+              <!-- <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+  </section>{% endcomment %}
+  {% include "webpages/projects.html" %}
+{% endblock %}

@@ -1,11 +1,14 @@
-.box {}
+.modal-content {
+    background-color:#141e30;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+}
 
-.box h2 {
-    margin: 0 0 30px;
-    /* margin-top: 300px;*/
+.modal-title {
+    
     padding: 0;
-    color: rgb(7, 0, 0);
-    text-align: center;
+    color: #fff;
+  text-align: center;
 }
 
 .box .user-box {
@@ -14,32 +17,32 @@
 
 .box .user-box input {
     width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: rgb(8, 0, 0);
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid rgb(15, 1, 1);
-    outline: none;
-    background: transparent;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
 }
 
 .box .user-box label {
     position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 0;
-    font-size: 16px;
-    color: rgb(12, 1, 1);
-    pointer-events: none;
-    transition: .5s;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
 }
 
 .box .user-box input:focus~label,
 .box .user-box input:valid~label {
     top: -20px;
     left: 0;
-    color: #66ff00;
+    color: #03e9f4;
     font-size: 12px;
 }
 
@@ -47,7 +50,7 @@
     position: relative;
     display: inline-block;
     padding: 10px 20px;
-    color: #66ff00;
+    color: #03e9f4;
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
@@ -72,10 +75,13 @@
 }
 
 .box a:hover {
-    background: #66ff00;
-    color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #66ff00, 0 0 25px #66ff00, 66ff000 0 50px #66ff00, 0 0 100px #03e9f4;
+    background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
 }
 
 .box a span {
@@ -128,7 +134,7 @@
     width: 100%;
     height: 2px;
     background: linear-gradient(270deg, transparent, #03e9f4);
-    03e9f4 animation: btn-anim3 1s linear infinite;
+    animation: btn-anim3 1s linear infinite;
     animation-delay: .5s
 }
 
@@ -167,9 +173,13 @@ select {
     padding: 10px 10px;
     font-size: 16px;
     color: white;
-    background-color: rgba(0, 0, 0, .5);
+    background-color:transparent;
     margin-bottom: 10px;
     padding-bottom: 20px;
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border: none;
+    border-bottom: 1px solid rgb(240, 237, 241);
 }
+    
+   
