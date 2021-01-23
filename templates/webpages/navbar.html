@@ -16,8 +16,7 @@
           <li {% if request.path == '/projects' %} class="active"{% endif %}><a href="{% url 'home' %}#portfolio">Projects</a></li>
           <li {% if request.path == '/team/' %} class="active"{% endif %}><a href="{% url 'team' %}">Our Team</a></li>
           <li {% if request.path == '/events/' %} class="active"{% endif %}><a href="{% url 'events' %}">Events</a></li>
-          
-          <li><a href="#contact">Contact us</a></li>
+          <li {% if request.path == '/contact_us/' %} class="active"{% endif %}><a href="{% url 'home' %}#contact">Contact us</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
