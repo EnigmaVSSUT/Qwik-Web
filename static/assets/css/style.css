@@ -553,6 +553,11 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+.about{
+  background: white !important;
+  position: relative;
+}
+
 .about .content {
   padding: 30px 0;
 }
