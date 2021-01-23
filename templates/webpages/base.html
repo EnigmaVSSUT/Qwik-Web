@@ -130,6 +130,8 @@
             <h4>Our Newsletter</h4>
             <p>Subscribe to our Newsletter and get latest information about our latest work.</p>
             <form action="" method="post">
+              {% csrf_token %}
+                {% comment %} {{ form|crispy }} {% endcomment %}
               <input type="email" name="email" placeholder="Email"><input type="submit" value="Subscribe">
             </form>
 

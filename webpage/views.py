@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import MemberRegistrationForm, MemberRegistrationForm2, EventRegistrationForm, LiftOffCRegistrationForm
+from .forms import MemberRegistrationForm, MemberRegistrationForm2, EventRegistrationForm, LiftOffCRegistrationForm,ContactusForm,NewsletterForm
 from django.template.defaultfilters import slugify
 from django.core.mail import EmailMessage, send_mail, EmailMultiAlternatives
 from django.template.loader import render_to_string
-from .models import Member, EventRegistration, LiftOffCRegistration
+from .models import Member, EventRegistration, LiftOffCRegistration,Contactus,Newsletter
 from django.utils.html import strip_tags
 SENDER_EMAIL = 'orientation@enigmavssut.tech'
 
@@ -181,7 +181,7 @@ def events(request):
             else:
                 print(new_form.errors)
                 messages.warning(
-                    request, 'Oops! you could not be registred successfully.')
+                    request, 'Oops! you could not be registered successfully.')
                 return redirect('events')
         else:
             new_form=LiftOffCRegistration()
@@ -220,3 +220,54 @@ def ml_ai(request):
 
 def web_dev(request):
     return render(request,'webpages/web_dev.html',{'title':'WEB DEVELOPMENT'})
+
+def contact_us(request):
+    if request.method=='POST':
+        contact_form=ContactusForm(request.POST)
+        if contact_form.is_valid():
+            new_contact=ContactusForm()
+            new_contact.name=contact_form.cleaned_data.get('name')
+            new_contact.email=contact_form.cleaned_data.get('email')
+            new_contact.subject=contact_form.cleaned_data.get('subject')
+            new_contact.msg=contact_form.cleaned_data.get('message')
+            new_contact.save()
+            messages.success(request,'Message successfully sent!')
+            return redirect('home')
+        else:
+            print(contact_form.errors)
+            messages.warning(request,
+            'Message could not be successfuly sent.Try again.')
+            return redirect('home')
+    else:
+        contact_form=ContactusForm()
+        context={
+            'form':contact_form
+        }
+        return render(request,'webpages/home.html',context)
+
+def sub_newsletter(request):
+    try:
+        if request.method=='POST':
+            subs_form=NewsletterForm(request.POST)
+            if subs_form.is_valid():
+                new_subs=NewsletterForm()
+                new_subs.email=subs_form.cleaned_data.get('email')
+                new_subs.slug=slugify(new_subs.email + 'subsnew')
+                new_subs.save()
+                messages.success(request,'You have successfully subscribed!')
+                return redirect('home')
+            else:
+                print(subs_form.errors)
+                messages.warning(request,
+                'Oops!you could not be subscribed successfully')
+                return redirect(home)
+        else:
+            subs_form=NewsletterForm()
+            context={
+                'form':subs_form
+            }
+            return render(request,'webpages/home.html',context)
+        
+    except:
+        messages.warning(request,'You have already subscribed')
+        return redirect('home')
