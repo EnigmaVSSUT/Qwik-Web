@@ -130,7 +130,7 @@
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
             <p>Subscribe to our Newsletter and get latest information about our latest work.</p>
-            <form method="POST">
+            <form action="{% url 'subs_news' %}" method="POST">
               {% csrf_token %}
               
               <input type="email" name="email" placeholder="Email" required id="id_email"><input type="submit" value="Subscribe" name="news_sub">

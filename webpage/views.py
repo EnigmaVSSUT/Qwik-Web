@@ -223,10 +223,10 @@ def web_dev(request):
 
 
 def contact_us(request):
-    if request.method=='POST':
+    if request.method=='POST' and 'cnt_us' in request.POST:
         contact_form=ContactusForm(request.POST)
         if contact_form.is_valid():
-            new_contact=Contactus()
+            new_contact= Contactus()
             new_contact.name=contact_form.cleaned_data.get('name')
             new_contact.email=contact_form.cleaned_data.get('email')
             new_contact.subject=contact_form.cleaned_data.get('subject')
@@ -240,7 +240,7 @@ def contact_us(request):
             'Message could not be successfuly sent.Try again.')
             return redirect('home')
     else:
-        contact_form=Contactus()
+        contact_form=ContactusForm()
         context={
             'form':contact_form
         }
