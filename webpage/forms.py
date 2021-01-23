@@ -57,8 +57,8 @@ class LiftOffCRegistrationForm(forms.ModelForm):
 
 class ContactusForm(forms.ModelForm):
     class Meta:
-        model=Contactus
-        fields=[
+        model = Contactus
+        fields = [
             'name',
             'email',
             'subject',
@@ -67,7 +67,7 @@ class ContactusForm(forms.ModelForm):
 
 class NewsletterForm(forms.ModelForm):
     class Meta:
-        model=Newsletter
-        fields=[
+        model = Newsletter
+        fields = [
             'email'
         ]

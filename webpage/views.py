@@ -221,11 +221,12 @@ def ml_ai(request):
 def web_dev(request):
     return render(request,'webpages/web_dev.html',{'title':'WEB DEVELOPMENT'})
 
+
 def contact_us(request):
     if request.method=='POST':
         contact_form=ContactusForm(request.POST)
         if contact_form.is_valid():
-            new_contact=ContactusForm()
+            new_contact=Contactus()
             new_contact.name=contact_form.cleaned_data.get('name')
             new_contact.email=contact_form.cleaned_data.get('email')
             new_contact.subject=contact_form.cleaned_data.get('subject')
@@ -239,18 +240,19 @@ def contact_us(request):
             'Message could not be successfuly sent.Try again.')
             return redirect('home')
     else:
-        contact_form=ContactusForm()
+        contact_form=Contactus()
         context={
             'form':contact_form
         }
         return render(request,'webpages/home.html',context)
 
+
 def sub_newsletter(request):
     try:
-        if request.method=='POST':
+        if request.method=='POST' and 'news_sub' in request.POST:
             subs_form=NewsletterForm(request.POST)
             if subs_form.is_valid():
-                new_subs=NewsletterForm()
+                new_subs=Newsletter()
                 new_subs.email=subs_form.cleaned_data.get('email')
                 new_subs.slug=slugify(new_subs.email + 'subsnew')
                 new_subs.save()
@@ -260,9 +262,9 @@ def sub_newsletter(request):
                 print(subs_form.errors)
                 messages.warning(request,
                 'Oops!you could not be subscribed successfully')
-                return redirect(home)
+                return redirect('home')
         else:
-            subs_form=NewsletterForm()
+            subs_form=Newsletter()
             context={
                 'form':subs_form
             }
