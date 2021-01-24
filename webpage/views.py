@@ -233,3 +233,9 @@ def ml_ai(request):
 
 def web_dev(request):
     return render(request, 'webpages/web_dev.html', {'title': 'WEB DEVELOPMENT'})
+
+def sub_newsletter(request):
+    pass
+
+def contact_us(request):
+    pass
