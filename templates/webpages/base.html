@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -129,8 +130,10 @@
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
             <p>Subscribe to our Newsletter and get latest information about our latest work.</p>
-            <form action="" method="post">
-              <input type="email" name="email" placeholder="Email"><input type="submit" value="Subscribe">
+            <form action="{% url 'subs_news' %}" method="POST">
+              {% csrf_token %}
+              
+              <input type="email" name="email" placeholder="Email" required id="id_email"><input type="submit" value="Subscribe" name="news_sub">
             </form>
 
           </div>

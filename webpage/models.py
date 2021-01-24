@@ -104,3 +104,20 @@ class LiftOffCRegistration(models.Model):
 
     def __str__(self):
         return self.name
+
+class Contactus(models.Model):
+    name=models.CharField(max_length=100)
+    email=models.CharField(max_length=100)
+    subject=models.CharField(max_length=150)
+    msg=models.TextField()
+    
+
+    def __str__(self):
+        return self.name
+
+class Newsletter(models.Model):
+    email=models.CharField(max_length=100)
+    slug=models.SlugField(unique=True,max_length=100)
+    
+    def __str__(self):
+        return self.email

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Member, EventRegistration, LiftOffCRegistration
+from .models import Member, EventRegistration, LiftOffCRegistration,Contactus,Newsletter
 
 
 class MemberRegistrationForm(forms.ModelForm):
@@ -53,4 +53,21 @@ class LiftOffCRegistrationForm(forms.ModelForm):
             'knowledge',
             'expectations',
             'mode_comm'
+        ]
+
+class ContactusForm(forms.ModelForm):
+    class Meta:
+        model = Contactus
+        fields = [
+            'name',
+            'email',
+            'subject',
+            'msg'
+        ]
+
+class NewsletterForm(forms.ModelForm):
+    class Meta:
+        model = Newsletter
+        fields = [
+            'email'
         ]

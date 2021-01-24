@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import MemberRegistrationForm, MemberRegistrationForm2, EventRegistrationForm, LiftOffCRegistrationForm
+from .forms import MemberRegistrationForm, MemberRegistrationForm2, EventRegistrationForm, LiftOffCRegistrationForm,ContactusForm,NewsletterForm
 from django.template.defaultfilters import slugify
 from django.core.mail import EmailMessage, send_mail, EmailMultiAlternatives
 from django.template.loader import render_to_string
-from .models import Member, EventRegistration, LiftOffCRegistration
+from .models import Member, EventRegistration, LiftOffCRegistration,Contactus,Newsletter
 from django.utils.html import strip_tags
 SENDER_EMAIL = 'orientation@enigmavssut.tech'
 
@@ -187,7 +187,7 @@ def events(request):
             else:
                 print(new_form.errors)
                 messages.warning(
-                    request, 'Oops! you could not be registred successfully.')
+                    request, 'Oops! you could not be registered successfully.')
                 return redirect('events')
         else:
             new_form = LiftOffCRegistration()
