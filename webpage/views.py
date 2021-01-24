@@ -13,6 +13,7 @@ SENDER_EMAIL = 'orientation@enigmavssut.tech'
 
 
 def home(request):
+    
     return render(request, 'webpages/home.html')
 
 

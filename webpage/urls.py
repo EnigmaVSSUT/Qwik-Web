@@ -1,8 +1,7 @@
 from django.urls import path
 from .views import (home, user_profile, team, events, 
                     event_registration,lift_off_c_registration,
-                    all_regs,app_dev,ar_vr,grp_des,cp,ml_ai,web_dev,
-                    sub_newsletter,contact_us)
+                    all_regs,app_dev,ar_vr,grp_des,cp,ml_ai,web_dev,)
 
 urlpatterns = [
     path('', home, name='home'),
@@ -18,6 +17,4 @@ urlpatterns = [
     path('cp/',cp,name='cp'),
     path('ml_ai/',ml_ai,name='ml_ai'),
     path('web_dev/',web_dev,name='web_dev'),
-    path('subs/',sub_newsletter,name='subs_news'),
-    path('cnt_us/',contact_us,name='contact_us')
 ]
