@@ -70,4 +70,4 @@ class NewsletterForm(forms.ModelForm):
         model = Newsletter
         fields = [
             'email'
-        ]
+        ] 
