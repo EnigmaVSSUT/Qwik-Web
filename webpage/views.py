@@ -42,11 +42,17 @@ def team(request):
         else:
             messages.warning(request, 'Invalid Entry!')
     else:
-        all_members = Member.objects.all().order_by('-year', 'firstname')
+        final_members = Member.objects.filter(year=4)
+        prefinal_members = Member.objects.filter(year=3)
+        secondyr_members = Member.objects.filter(year=2)
+        # all_members = Member.objects.all().order_by('-year', 'firstname')
         m_form = MemberRegistrationForm()
         m_form2 = MemberRegistrationForm2()
         context = {
-            'all_members': all_members,
+            # 'all_members': all_members,
+            'final_members': final_members,
+            'prefinal_members': prefinal_members,
+            'secondyr_members': secondyr_members,
             'title': 'team',
             'm_form': m_form,
             'm_form2': m_form2
@@ -132,7 +138,7 @@ def lift_off_c_registration(request):
                     'whatsapp_no')
                 new_mentee.year = new_form.cleaned_data.get('year')
                 new_mentee.branch = new_form.cleaned_data.get('branch')
-                new_mentee.knowledge=new_form.cleaned_data.get('knowledge')
+                new_mentee.knowledge = new_form.cleaned_data.get('knowledge')
                 new_mentee.expectations = new_form.cleaned_data.get(
                     'expectations')
                 new_mentee.mode_comm = new_form.cleaned_data.get('mode_comm')
@@ -146,11 +152,11 @@ def lift_off_c_registration(request):
                     request, 'Oops! you could not be registred successfully.')
                 return redirect('events')
         else:
-            new_form=LiftOffCRegistration()
-            context={
-                'form':new_form
+            new_form = LiftOffCRegistration()
+            context = {
+                'form': new_form
             }
-            return render(request,'webpages/form-index.html',context)
+            return render(request, 'webpages/form-index.html', context)
 
     except:
         messages.warning(request, 'You Have already registered!')
@@ -169,7 +175,7 @@ def events(request):
                     'whatsapp_no')
                 new_mentee.year = new_form.cleaned_data.get('year')
                 new_mentee.branch = new_form.cleaned_data.get('branch')
-                new_mentee.knowledge=new_form.cleaned_data.get('knowledge')
+                new_mentee.knowledge = new_form.cleaned_data.get('knowledge')
                 new_mentee.expectations = new_form.cleaned_data.get(
                     'expectations')
                 new_mentee.mode_comm = new_form.cleaned_data.get('mode_comm')
@@ -184,16 +190,17 @@ def events(request):
                     request, 'Oops! you could not be registered successfully.')
                 return redirect('events')
         else:
-            new_form=LiftOffCRegistration()
-            context={
-                'form':new_form
+            new_form = LiftOffCRegistration()
+            context = {
+                'form': new_form
             }
-            return render(request,'webpages/events.html',context)
+            return render(request, 'webpages/events.html', context)
 
     except:
         messages.warning(request, 'You Have already registered!')
         return redirect('events')
-    
+
+
 def all_regs(request):
     all = LiftOffCRegistration.objects.all()
     all_count = LiftOffCRegistration.objects.all().count()
@@ -203,73 +210,26 @@ def all_regs(request):
     }
     return render(request, 'webpages/all_mentee_regs.html', context)
 
+
 def app_dev(request):
-    return render(request,'webpages/app.html',{'title':'APP DEVELOPMENT'})
+    return render(request, 'webpages/app.html', {'title': 'APP DEVELOPMENT'})
+
 
 def ar_vr(request):
-    return render(request,'webpages/ar_vr.html',{'title':'VIRTUAL REALITY'})
+    return render(request, 'webpages/ar_vr.html', {'title': 'VIRTUAL REALITY'})
+
 
 def grp_des(request):
-    return render(request,'webpages/grp-des.html',{'title':'GRAPHIC DESIGN'})
+    return render(request, 'webpages/grp-des.html', {'title': 'GRAPHIC DESIGN'})
+
 
 def cp(request):
-    return render(request,'webpages/cp.html',{'title':'COMPETITIVE PROGRAMMING'})
+    return render(request, 'webpages/cp.html', {'title': 'COMPETITIVE PROGRAMMING'})
+
 
 def ml_ai(request):
-    return render(request,'webpages/ml_ai.html',{'title':'MACHINE LEARNING/ARTIFICIAL INTELLIGENCE'})
+    return render(request, 'webpages/ml_ai.html', {'title': 'MACHINE LEARNING/ARTIFICIAL INTELLIGENCE'})
+
 
 def web_dev(request):
-    return render(request,'webpages/web_dev.html',{'title':'WEB DEVELOPMENT'})
-
-
-def contact_us(request):
-    if request.method=='POST' and 'cnt_us' in request.POST:
-        contact_form=ContactusForm(request.POST)
-        if contact_form.is_valid():
-            new_contact= Contactus()
-            new_contact.name=contact_form.cleaned_data.get('name')
-            new_contact.email=contact_form.cleaned_data.get('email')
-            new_contact.subject=contact_form.cleaned_data.get('subject')
-            new_contact.msg=contact_form.cleaned_data.get('message')
-            new_contact.save()
-            messages.success(request,'Message successfully sent!')
-            return redirect('home')
-        else:
-            print(contact_form.errors)
-            messages.warning(request,
-            'Message could not be successfuly sent.Try again.')
-            return redirect('home')
-    else:
-        contact_form=ContactusForm()
-        context={
-            'form':contact_form
-        }
-        return render(request,'webpages/home.html',context)
-
-
-def sub_newsletter(request):
-    try:
-        if request.method=='POST' and 'news_sub' in request.POST:
-            subs_form=NewsletterForm(request.POST)
-            if subs_form.is_valid():
-                new_subs=Newsletter()
-                new_subs.email=subs_form.cleaned_data.get('email')
-                new_subs.slug=slugify(new_subs.email + 'subsnew')
-                new_subs.save()
-                messages.success(request,'You have successfully subscribed!')
-                return redirect('home')
-            else:
-                print(subs_form.errors)
-                messages.warning(request,
-                'Oops!you could not be subscribed successfully')
-                return redirect('home')
-        else:
-            subs_form=Newsletter()
-            context={
-                'form':subs_form
-            }
-            return render(request,'webpages/home.html',context)
-        
-    except:
-        messages.warning(request,'You have already subscribed')
-        return redirect('home')
+    return render(request, 'webpages/web_dev.html', {'title': 'WEB DEVELOPMENT'})
