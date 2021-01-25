@@ -1287,7 +1287,7 @@ section {
   border-color: #34cc43;
 }
 
-.contact .php-email-form button[type="submit"] {
+.contact button[type="submit"] {
   background: #34cc43;
   border: 0;
   padding: 10px 30px 12px 30px;
