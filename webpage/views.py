@@ -14,7 +14,47 @@ SENDER_EMAIL = 'orientation@enigmavssut.tech'
 
 def home(request):
     
-    return render(request, 'webpages/home.html')
+    if request.method == 'POST':
+        if 'cnt_us' in request.POST:
+            c_form=ContactusForm(request.POST)
+            if c_form.is_valid():
+                new_contact = Contactus()
+                new_contact.name = c_form.cleaned_data.get('name')
+                new_contact.email = c_form.cleaned_data.get('email')
+                new_contact.subject = c_form.cleaned_data.get('subject')
+                new_contact.msg = c_form.cleaned_data.get('msg')
+                new_contact.save()
+                messages.success(request,'Message was successfully sent!')
+                return redirect(home)
+            else:
+                messages.warning(request,'Message could not be sent successfully.')
+                return redirect(home)
+        else:
+            try:
+                s_form=NewsletterForm(request.POST)
+                if s_form.is_valid():
+                    subs_new= Newsletter()
+                    subs_new.email=s_form.cleaned_data.get('email')
+                    subs_new.slug=slugify(subs_new.email + 'new_sub')
+                    subs_new.save()
+                    messages.success(request,'You have successfully subscribed to our newsletter!')
+                    return redirect(home)
+                else:
+                    print(s_form.errors)
+                    messages.warning(request,'Oops! you could not be subscribed.')
+                    return redirect(home) 
+            except:                    
+                    messages.warning(request,'You have already subscribed to our newsletter.')
+                    return redirect(home)  
+                
+    else:
+        c_form = ContactusForm()
+        s_form =NewsletterForm()
+        context={
+            'c_form':c_form,
+            's_form':s_form
+        }        
+        return render(request, 'webpages/home.html',context)
 
 
 @login_required
@@ -235,8 +275,4 @@ def ml_ai(request):
 def web_dev(request):
     return render(request, 'webpages/web_dev.html', {'title': 'WEB DEVELOPMENT'})
 
-def sub_newsletter(request):
-    pass
 
-def contact_us(request):
-    pass
