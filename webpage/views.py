@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import MemberRegistrationForm, MemberRegistrationForm2, EventRegistrationForm, LiftOffCRegistrationForm
+from .forms import MemberRegistrationForm, MemberRegistrationForm2, EventRegistrationForm, LiftOffCRegistrationForm,ContactusForm,NewsletterForm
 from django.template.defaultfilters import slugify
 from django.core.mail import EmailMessage, send_mail, EmailMultiAlternatives
 from django.template.loader import render_to_string
-from .models import Member, EventRegistration, LiftOffCRegistration
+from .models import Member, EventRegistration, LiftOffCRegistration,Contactus,Newsletter
 from django.utils.html import strip_tags
 SENDER_EMAIL = 'orientation@enigmavssut.tech'
 
@@ -13,7 +13,48 @@ SENDER_EMAIL = 'orientation@enigmavssut.tech'
 
 
 def home(request):
-    return render(request, 'webpages/home.html')
+    
+    if request.method == 'POST':
+        if 'cnt_us' in request.POST:
+            c_form=ContactusForm(request.POST)
+            if c_form.is_valid():
+                new_contact = Contactus()
+                new_contact.name = c_form.cleaned_data.get('name')
+                new_contact.email = c_form.cleaned_data.get('email')
+                new_contact.subject = c_form.cleaned_data.get('subject')
+                new_contact.msg = c_form.cleaned_data.get('msg')
+                new_contact.save()
+                messages.success(request,'Message was successfully sent!')
+                return redirect(home)
+            else:
+                messages.warning(request,'Message could not be sent successfully.')
+                return redirect(home)
+        else:
+            try:
+                s_form=NewsletterForm(request.POST)
+                if s_form.is_valid():
+                    subs_new= Newsletter()
+                    subs_new.email=s_form.cleaned_data.get('email')
+                    subs_new.slug=slugify(subs_new.email + 'new_sub')
+                    subs_new.save()
+                    messages.success(request,'You have successfully subscribed to our newsletter!')
+                    return redirect(home)
+                else:
+                    print(s_form.errors)
+                    messages.warning(request,'Oops! you could not be subscribed.')
+                    return redirect(home) 
+            except:                    
+                    messages.warning(request,'You have already subscribed to our newsletter.')
+                    return redirect(home)  
+                
+    else:
+        c_form = ContactusForm()
+        s_form =NewsletterForm()
+        context={
+            'c_form':c_form,
+            's_form':s_form
+        }        
+        return render(request, 'webpages/home.html',context)
 
 
 @login_required
@@ -42,11 +83,17 @@ def team(request):
         else:
             messages.warning(request, 'Invalid Entry!')
     else:
-        all_members = Member.objects.all().order_by('-year', 'firstname')
+        final_members = Member.objects.filter(year=4)
+        prefinal_members = Member.objects.filter(year=3)
+        secondyr_members = Member.objects.filter(year=2)
+        # all_members = Member.objects.all().order_by('-year', 'firstname')
         m_form = MemberRegistrationForm()
         m_form2 = MemberRegistrationForm2()
         context = {
-            'all_members': all_members,
+            # 'all_members': all_members,
+            'final_members': final_members,
+            'prefinal_members': prefinal_members,
+            'secondyr_members': secondyr_members,
             'title': 'team',
             'm_form': m_form,
             'm_form2': m_form2
@@ -132,7 +179,7 @@ def lift_off_c_registration(request):
                     'whatsapp_no')
                 new_mentee.year = new_form.cleaned_data.get('year')
                 new_mentee.branch = new_form.cleaned_data.get('branch')
-                new_mentee.knowledge=new_form.cleaned_data.get('knowledge')
+                new_mentee.knowledge = new_form.cleaned_data.get('knowledge')
                 new_mentee.expectations = new_form.cleaned_data.get(
                     'expectations')
                 new_mentee.mode_comm = new_form.cleaned_data.get('mode_comm')
@@ -146,11 +193,11 @@ def lift_off_c_registration(request):
                     request, 'Oops! you could not be registred successfully.')
                 return redirect('events')
         else:
-            new_form=LiftOffCRegistration()
-            context={
-                'form':new_form
+            new_form = LiftOffCRegistration()
+            context = {
+                'form': new_form
             }
-            return render(request,'webpages/form-index.html',context)
+            return render(request, 'webpages/form-index.html', context)
 
     except:
         messages.warning(request, 'You Have already registered!')
@@ -169,7 +216,7 @@ def events(request):
                     'whatsapp_no')
                 new_mentee.year = new_form.cleaned_data.get('year')
                 new_mentee.branch = new_form.cleaned_data.get('branch')
-                new_mentee.knowledge=new_form.cleaned_data.get('knowledge')
+                new_mentee.knowledge = new_form.cleaned_data.get('knowledge')
                 new_mentee.expectations = new_form.cleaned_data.get(
                     'expectations')
                 new_mentee.mode_comm = new_form.cleaned_data.get('mode_comm')
@@ -181,19 +228,20 @@ def events(request):
             else:
                 print(new_form.errors)
                 messages.warning(
-                    request, 'Oops! you could not be registred successfully.')
+                    request, 'Oops! you could not be registered successfully.')
                 return redirect('events')
         else:
-            new_form=LiftOffCRegistration()
-            context={
-                'form':new_form
+            new_form = LiftOffCRegistration()
+            context = {
+                'form': new_form
             }
-            return render(request,'webpages/events.html',context)
+            return render(request, 'webpages/events.html', context)
 
     except:
         messages.warning(request, 'You Have already registered!')
         return redirect('events')
-    
+
+
 def all_regs(request):
     all = LiftOffCRegistration.objects.all()
     all_count = LiftOffCRegistration.objects.all().count()
@@ -203,20 +251,28 @@ def all_regs(request):
     }
     return render(request, 'webpages/all_mentee_regs.html', context)
 
+
 def app_dev(request):
-    return render(request,'webpages/app.html',{'title':'APP DEVELOPMENT'})
+    return render(request, 'webpages/app.html', {'title': 'APP DEVELOPMENT'})
+
 
 def ar_vr(request):
-    return render(request,'webpages/ar_vr.html',{'title':'VIRTUAL REALITY'})
+    return render(request, 'webpages/ar_vr.html', {'title': 'VIRTUAL REALITY'})
+
 
 def grp_des(request):
-    return render(request,'webpages/grp-des.html',{'title':'GRAPHIC DESIGN'})
+    return render(request, 'webpages/grp-des.html', {'title': 'GRAPHIC DESIGN'})
+
 
 def cp(request):
-    return render(request,'webpages/cp.html',{'title':'COMPETITIVE PROGRAMMING'})
+    return render(request, 'webpages/cp.html', {'title': 'COMPETITIVE PROGRAMMING'})
+
 
 def ml_ai(request):
-    return render(request,'webpages/ml_ai.html',{'title':'MACHINE LEARNING/ARTIFICIAL INTELLIGENCE'})
+    return render(request, 'webpages/ml_ai.html', {'title': 'MACHINE LEARNING/ARTIFICIAL INTELLIGENCE'})
+
 
 def web_dev(request):
-    return render(request,'webpages/web_dev.html',{'title':'WEB DEVELOPMENT'})
+    return render(request, 'webpages/web_dev.html', {'title': 'WEB DEVELOPMENT'})
+
+

@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,6 +31,11 @@
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/team.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/domain.css' %}"rel="stylesheet">
+
+  <!-- particle -->
+  <link href="{% static 'assets/particle/style.css' %}" rel="stylesheet">
+  <script defer src="{% static 'assets/particle/particlesInit.js' %}"></script>
+  <!-- particle end -->
   {% comment %} <link href="{% static 'assets/css/team.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/signup-page.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/login-page.css' %}" rel="stylesheet"> {% endcomment %}
@@ -80,7 +86,7 @@
                 <strong>Email:</strong> enigma.vssut@gmail.com<br>
               </p>
               <div class="social-links mt-3">
-                <a href="#" class="youtube">
+                <a href="https://www.youtube.com/channel/UCp3MLpyEMVEgLrsf5kRBQrg" class="youtube">
                   <i class="bx bxl-youtube"></i>
                 </a>
                 <!-- <a href="https://www.facebook.com/enigma.vssut/" target="_blank" class="facebook">
@@ -89,7 +95,7 @@
                 <a href="https://instagram.com/enigma_vssut?igshid=fx77cgfg206p" target="_blank" class="instagram">
                   <i class="bx bxl-instagram"></i>
                 </a>
-                <a href="#" class="github">
+                <a href="https://github.com/EnigmaVSSUT" class="github">
                   <i class="bx bxl-github"></i>
                 </a>
                 <a href="https://www.linkedin.com/company/enigma-vssut/" target="_blank" class="linkedin">
@@ -107,6 +113,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'events' %}">Events</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'team' %}">Our Team</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home' %}#portfolio">Our Projects</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/admin">Admin</a></li>
             </ul>
           </div>
 
@@ -124,8 +131,10 @@
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
             <p>Subscribe to our Newsletter and get latest information about our latest work.</p>
-            <form action="" method="post">
-              <input type="email" name="email" placeholder="Email"><input type="submit" value="Subscribe">
+            <form action="{% url 'home' %}" method="POST">
+              {% csrf_token %}
+              
+              <input type="email" name="email" placeholder="Email" required ><input type="submit" value="Subscribe" name="news_sub">
             </form>
 
           </div>

@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'quiz.apps.QuizConfig',
     'webpage.apps.WebpageConfig',
     'django.contrib.admin',
     'django.contrib.auth',

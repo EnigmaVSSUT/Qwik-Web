@@ -16,5 +16,5 @@ urlpatterns = [
     path('grp_des/',grp_des,name='grp_des'),
     path('cp/',cp,name='cp'),
     path('ml_ai/',ml_ai,name='ml_ai'),
-    path('web_dev/',web_dev,name='web_dev')
+    path('web_dev/',web_dev,name='web_dev'),
 ]
