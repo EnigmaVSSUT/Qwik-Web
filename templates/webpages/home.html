@@ -5,15 +5,24 @@
 {% block content %}
   <main id="main">
     <div class="sticky-wrap">
-      <div class="particle-container">
-        <div id="particle-slider">
-          <div class="slides">
-            <!-- <div class="slide" data-src="ADD_EXTRA_IF_U_WANT"></div> -->
-            <div class="slide" data-src="{% static 'assets\img\enigma-logo.jpg' %}"></div>
-          </div>
-          <canvas class="draw"></canvas>
+
+      <div class="home-section-wrap">
+
+        <div class="head">
+          <span class="heading float">Some Floating text might look nyc</>
         </div>
+        <div class="particle-container">
+          <div id="particle-slider">
+            <div class="slides">
+              <!-- <div class="slide" data-src="ADD_EXTRA_IF_U_WANT"></div> -->
+              <div class="slide" data-src="{% static 'assets\img\enigma-logo.jpg' %}"></div>
+            </div>
+            <canvas class="draw"></canvas>
+          </div>
+        </div>
+
       </div>
+
       <!-- ======= About Section ======= -->
       <section id="about" class="about">
         <div class="container">
