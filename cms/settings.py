@@ -157,7 +157,7 @@ DATABASES = {
         'NAME': 'enigma',
         'USER': 'remotebg',
         'PASSWORD': '6705',
-        'HOST': '13.233.138.11',
+        'HOST': 'balgopal.ml',
         'PORT': '5432',
     }
 }
