@@ -2,261 +2,335 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block extra_head %}
- <!-- Yahan pe daal de jitna bhi extra CSS hai -->
+<!-- Yahan pe daal de jitna bhi extra CSS hai -->
 <link href="{% static 'assets/css/form-index.css' %}" rel="stylesheet">
 <link href="{% static 'assets/css/events.css' %}" rel="stylesheet">
 {% endblock %}
 {% block content %}
 
 <main id="main">
-        <div class="container upcoming-events">
-            <h1 class="text-center">UPCOMING EVENTS</h1>
-            <div class="jumbotron">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-4 left-side">
-                        <img class="img-thumbnail upcoming-event-image" src="{% static 'assets/img/liftoffc_vertical.jpeg' %}" alt="Card image cap" >
-                    </div>
-                    <div class="col-12 col-md-8 right-side pt-3 pt-md-0">
-                        <div>
-                            <h3 class="event-title text-center">Lift-Off-C</h5>
-                            <p class="date text-center" ><strong>Date</strong> - 1st February 2021</p>
-                            <p class="description">Eagerly waiting to get started with programming, but don’t know how to start? Worry not, ‘cuz we got you covered.</p>
-                            <p class="description">CodeChef VSSUT Chapter, in collaboration with Enigma and DSC VSSUT, brings you the most awaited programme – LiftOff C which aims to help you get started with C programming.</p>
-                            <p class="description">Who can register? Anyone with a knack for learning. Whether you are totally new to programming or already have some knowledge about it, this is for you.</p>
-                            <p class="description">What will happen in this? We will guide you from the basics of programming to advanced topics so you can master in it. We will also conduct contests and fun quizzes with questions designed especially for you to try the skills you have learnt during the programme. </p>
-                            <p class="description">So, how will this work? Interested students will be divided into small groups and be assigned a mentor who will guide you, provide you with materials to study from, will conduct regular doubt clearing sessions and will always be there to help you whenever you get stuck. Sounds awesome, right? </p>
-                            <p class="description">What will you get from it? This will be a 4-6 weeks programme, by the end of which you can proudly say that you have mastered the skill of programming. Wait, there’s more. The students who will successfully complete the programme and participate in all the contests will be awarded with an official certificate which you will be able to show off to whoever you want. 
-                                Exciting, right? Go ahead and fill out this form to register yourselves in this programme to LiftOff with C with us!</p>
-                            <p class="description">Registrations will close on <b>28th January 2021</b> and the program will start from <b>1st February 2021</b></p>
-                            <div class="button-area">
-                                <button type="button" class="btn btn-primary" >
-                                  Registration Closed
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                  <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content" style="z-index: 10;">
-                                      <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">Register for the program</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="opacity: 1;">
-                                          <span aria-hidden="true" style=color:#fff>&times;</span>
-                                        </button>
-                                      </div>
-                                      <div class="modal-body">
-                                        <div class="box">
-                                          <form method="POST">
-                                            {% csrf_token %}
-                                            <div class="user-box">
-                                            {% comment %} <div class="form-group">
-                                                <div>
-                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div>
-                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div>
-                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div>
-                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div>
-                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div>
-                                                    <input id="email" type="email" class="form-control" name="email" placeholder='email' autofocus>
-                                                </div>
-                                            </div> {% endcomment %}
-                                              {% comment %} {{ form|crispy }} {% endcomment %}
-                                            <div class="user-box m">
-
-                                              <input type="text" name="name" required id="id_name" autocomplete="off">
-                                              <label>Name</label>
-                                            </div>
-                                            <div class="user-box m">
-                                              <input type="email" name="email" required id="id_name" autocomplete="off">
-                                              <label>Email-ID</label>
-                                            </div>
-
-                                            <div class="user-box m">
-                                              <input type="text" name="whatsapp_no" required id="id_name" autocomplete="off">
-                                              <label>Whatsapp Number</label>
-                                            </div>
-
-                                            <div class="user-box">
-                                              <input type="text" name="branch" required id="id_name" autocomplete="off">
-                                              <label>Branch</label>
-                                              </div>
-                                            <div class="user-box" style="padding-bottom: 20px;">
-                                                <select name="year">
-                                                <label> <option disabled selected hidden>Year</option></label>
-                                                <option>First</option>
-                                                <option>Second</option>
-                                                <option>Third</option>
-                                                <option>Final</option>
-                                              </select>
-                                              </div>
-
-                                              <div class="user-box  " style="padding-bottom: 20px;">
-                                                <select name="knowledge">
-                                                  <option disabled  selected hidden>Level of knowledge in Programming</option>
-                                                <option>Totally new to programming</option>
-                                                <option>Intermediate in C but want to master it</option>
-                                                <option>Knows other language but want to learn C</option>
-                                                <option>A total pro at programming</option>
-                                              </select>
-                                              </div>
-                                              
-                                              <div class="user-box" style="padding-bottom: 20px;">
-                                                <select name="mode_comm">
-                                                  <option disabled selected hidden>Preffered mode of communication</option>
-                                                <option>Whatsapp</option>
-                                                <option>Telegram</option>
-                                                <option>Discord</option>
-                                              </select>
-                                              </div>
-                                              <div class="user-box">
-                                              <input type="text" name="expectations" id="id_firstname" autocomplete="off">
-                                              <label>Your expectations from us</label><br>
-                                              </div>
-                                              <button type="submit">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                                REGISTER
-                                              </button>
-                                          </form>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="container upcoming-events">
+    <h1 class="text-center">UPCOMING EVENTS</h1>
+    <div class="jumbotron">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4 left-side">
+          <img class="img-thumbnail upcoming-event-image"
+            src="{% static 'assets/img/induction_vertical.jpeg' %}" alt="Card image cap">
         </div>
+        <div class="col-12 col-md-8 right-side pt-3 pt-md-0">
+          <div>
+            <h3 class="event-title text-center">INDUCTION 2021</h5>
+              <p class="date text-center"><strong>Date</strong> - 25th April 2021</p>
+              <p class="description">Enigma - The Coding Club presents INDUCTION 2021 to induct
+                passionate individuals all set to become a part of the club.</p>
+              <p class="description">What will happen in this? We will guide you through all
+                Technincal fields and you will be able to discover your skills and experiment with
+                areas of expertise and many more!
+              </p>
+              <p class="description">🔊 Don't miss the deadline, make sure you register before 25th
+                of April</p>
 
-        <hr class="hr" >
-
-        <div class="container previous-events">
-            <h1 class="text-center">PAST EVENTS</h1>
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-6">
-                  <div class="jumbotron">
-                      <div class="row">
-                          <div class="col-12 col-md-5">
-                              <img class="img-thumbnail" src="{% static 'assets/img/orientation_verical.jpeg' %}" alt="" >
-                          </div>
-                          <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
-                              <div>
-                                  <h3 class="event-title text-center text-md-left">ORIENTATION - CYBERNATED ESCAPADE</h5>
-                                  <p class="date text-center text-md-left" style="margin-bottom: 3px;"><strong>Date</strong> - 16th January 2021</p>
-                                  <p class="description" style="line-height: 1.4;">
-                                    The freshmen orientation for batch 2020-24 was successfully conducted by Team Enigma.The
-                                    freshers were given a brief introduction about the club and working of various domains. They
-                                    participated in huge numbers and were extremely inquisitive during the QnA session.
-                                  </p>
-                              </div>
-                          </div>
+              <div class="button-area">
+                <button type="button" class="btn btn-primary">
+                  Register Now
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content" style="z-index: 10;">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Register for the program
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                          style="opacity: 1;">
+                          <span aria-hidden="true" style=color:#fff>&times;</span>
+                        </button>
                       </div>
+                      <div class="modal-body">
+                        <div class="box">
+                          <form method="POST">
+                            {% csrf_token %}
+                            <div class="user-box">
+                              {% comment %} <div class="form-group">
+                                <div>
+                                  <input id="email" type="email" class="form-control" name="email"
+                                    placeholder='email' autofocus>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <div>
+                                  <input id="email" type="email" class="form-control" name="email"
+                                    placeholder='email' autofocus>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <div>
+                                  <input id="email" type="email" class="form-control" name="email"
+                                    placeholder='email' autofocus>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <div>
+                                  <input id="email" type="email" class="form-control" name="email"
+                                    placeholder='email' autofocus>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <div>
+                                  <input id="email" type="email" class="form-control" name="email"
+                                    placeholder='email' autofocus>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <div>
+                                  <input id="email" type="email" class="form-control" name="email"
+                                    placeholder='email' autofocus>
+                                </div>
+                              </div> {% endcomment %}
+                              {% comment %} {{ form|crispy }} {% endcomment %}
+                              <div class="user-box m">
+
+                                <input type="text" name="name" required id="id_name"
+                                  autocomplete="off">
+                                <label>Name</label>
+                              </div>
+                              <div class="user-box m">
+                                <input type="email" name="email" required id="id_name"
+                                  autocomplete="off">
+                                <label>Email-ID</label>
+                              </div>
+
+                              <div class="user-box m">
+                                <input type="text" name="whatsapp_no" required id="id_name"
+                                  autocomplete="off">
+                                <label>Whatsapp Number</label>
+                              </div>
+
+                              <div class="user-box">
+                                <input type="text" name="branch" required id="id_name"
+                                  autocomplete="off">
+                                <label>Branch</label>
+                              </div>
+                              <div class="user-box" style="padding-bottom: 20px;">
+                                <select name="year">
+                                  <label>
+                                    <option disabled selected hidden>Year</option>
+                                  </label>
+                                  <option>First</option>
+                                  <option>Second</option>
+                                  <option>Third</option>
+                                  <option>Final</option>
+                                </select>
+                              </div>
+
+                              <div class="user-box  " style="padding-bottom: 20px;">
+                                <select name="knowledge">
+                                  <option disabled selected hidden>Level of knowledge in Programming
+                                  </option>
+                                  <option>Totally new to programming</option>
+                                  <option>Intermediate in C but want to master it</option>
+                                  <option>Knows other language but want to learn C</option>
+                                  <option>A total pro at programming</option>
+                                </select>
+                              </div>
+
+                              <div class="user-box" style="padding-bottom: 20px;">
+                                <select name="mode_comm">
+                                  <option disabled selected hidden>Preffered mode of communication
+                                  </option>
+                                  <option>Whatsapp</option>
+                                  <option>Telegram</option>
+                                  <option>Discord</option>
+                                </select>
+                              </div>
+                              <div class="user-box">
+                                <input type="text" name="expectations" id="id_firstname"
+                                  autocomplete="off">
+                                <label>Your expectations from us</label><br>
+                              </div>
+                              <button type="submit">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                REGISTER
+                              </button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="col-12 col-md-6">
-                  <div class="jumbotron">
-                      <div class="row">
-                          <div class="col-12 col-md-5">
-                              <img class="img-thumbnail" src="{% static 'assets/img/events/codeit.jpeg' %}" alt="" >
-                          </div>
-                          <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
-                              <div>
-                                  <h3 class="event-title text-center text-md-left">CODEIT</h5>
-                                  <p class="date text-center text-md-left" style="margin-bottom: 3px;"><strong>Online</strong> - 8th March 2020</p>
-                                  <p class="date text-center text-md-left" style="margin-bottom: 3px;"><strong>Onsite</strong> - 13th March 2020</p>
-                                  <p class="description" style="line-height: 1.4;">
-                                    In our annual Techno-Management fest Samavesh 2020, Enigma conducted a coding contest
-                                    CODE-IT, in which students from various institutes participated. The winners of the coding
-                                    challenge were given cash prizes worth 15k!
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="jumbotron">
-                        <div class="row">
-                            <div class="col-12 col-md-5">
-                                <img class="img-thumbnail" src="{% static 'assets/img/events/gdg-workshop.jpeg' %}" alt="" >
-                            </div>
-                            <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
-                                <div>
-                                    <h3 class="event-title text-center text-md-left">GDG WORKSHOP</h5>
-                                    <p class="date text-center text-md-left" style="margin-bottom: 3px;"><strong>Date</strong> - 13th March 2020</p>
-                                    <p class="description" style="line-height: 1.4;">
-                                      In the annual Techno-Management fest Samavesh 2020 Enigma organised workshops on
-                                      Machine learning using tensor flow, Blockchain and Google Cloud which were conducted by
-                                      Google Developer Group, Bhubaneswar.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="jumbotron">
-                        <div class="row">
-                            <div class="col-12 col-md-5">
-                                <img class="img-thumbnail" src="{% static 'assets/img/events/hacktober.jpeg' %}" alt="" >
-                            </div>
-                            <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
-                                <div>
-                                    <h3 class="event-title text-center text-md-left">HACKTOBER FEST</h5>
-                                    <p class="date text-center text-md-left" style="margin-bottom: 3px;"><strong>Date</strong> - 2nd October 2020</p>
-                                    <p class="description" style="line-height: 1.4;">
-                                      Hacktoberfest is a month long celebration of open source software. Enigma in collaboration with
-                                      DSC VSSUT organised a webinar on open source , Hacktoberfest and GSoC. Speakers Amogh
-                                      Desai and Ayush Agarwal talked about their journeys of cracking GSoC and development in
-                                      open source software.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="jumbotron">
-                        <div class="row">
-                            <div class="col-12 col-md-5">
-                                <img class="img-thumbnail" src="{% static 'assets/img/events/hacktober-gitandgithub.jpeg' %}" alt="" >
-                            </div>
-                            <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
-                                <div>
-                                    <h3 class="event-title text-center text-md-left">HACKTOBER - GIT & GITHUB</h5>
-                                        <p class="date text-center text-md-left" style="margin-bottom: 3px;"><strong>Date</strong> - 11th October 2020</p>
-                                        <p class="description" style="line-height: 1.4;">
-                                          Enigma in collaboration with DSC VSSUT organised a meet up on the basics of Git and GitHub.
-                                          Speaker Vartika Singh explained the viewers about how to access GitHub and work on its
-                                          various operations like create and merge pull requests.
-                                        </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              </div>
+          </div>
         </div>
-    </main>
+      </div>
+    </div>
+  </div>
+
+  <hr class="hr">
+
+  <div class="container previous-events">
+    <h1 class="text-center">PAST EVENTS</h1>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-12 col-md-5">
+              <img class="img-thumbnail" src="{% static 'assets/img/liftoffc_vertical.jpeg' %}"
+                alt="">
+            </div>
+            <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
+              <div>
+                <h3 class="event-title text-center text-md-left">Lift-Off-C</h5>
+                  <p class="date text-center text-md-left" style="margin-bottom: 3px;">
+                    <strong>Date</strong> - 1st February 2021
+                  </p>
+                  <p class="description" style="line-height: 1.4;">
+                    CodeChef VSSUT Chapter, in collaboration with Enigma and DSC VSSUT, organized
+                    LiftOff C which aims to help students get started with C programming. Students
+                    were divided in 33 groups and were assigned mentors. Weekly classes were held.
+                    Students were provided with weekly curated assignments and doubt clearing
+                    classes. Online HackerEarth coding contest was organized to put thier gained
+                    knowledge to test.
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-12 col-md-5">
+              <img class="img-thumbnail" src="{% static 'assets/img/orientation_verical.jpeg' %}"
+                alt="">
+            </div>
+            <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
+              <div>
+                <h3 class="event-title text-center text-md-left">ORIENTATION - CYBERNATED ESCAPADE
+                  </h5>
+                  <p class="date text-center text-md-left" style="margin-bottom: 3px;">
+                    <strong>Date</strong> - 16th January 2021
+                  </p>
+                  <p class="description" style="line-height: 1.4;">
+                    The freshmen orientation for batch 2020-24 was successfully conducted by Team
+                    Enigma.The
+                    freshers were given a brief introduction about the club and working of various
+                    domains. They
+                    participated in huge numbers and were extremely inquisitive during the QnA
+                    session.
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-12 col-md-5">
+              <img class="img-thumbnail" src="{% static 'assets/img/events/codeit.jpeg' %}" alt="">
+            </div>
+            <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
+              <div>
+                <h3 class="event-title text-center text-md-left">CODEIT</h5>
+                  <p class="date text-center text-md-left" style="margin-bottom: 3px;">
+                    <strong>Online</strong> - 8th March 2020
+                  </p>
+                  <p class="date text-center text-md-left" style="margin-bottom: 3px;">
+                    <strong>Onsite</strong> - 13th March 2020
+                  </p>
+                  <p class="description" style="line-height: 1.4;">
+                    In our annual Techno-Management fest Samavesh 2020, Enigma conducted a coding
+                    contest
+                    CODE-IT, in which students from various institutes participated. The winners of
+                    the coding
+                    challenge were given cash prizes worth 15k!
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-12 col-md-5">
+              <img class="img-thumbnail" src="{% static 'assets/img/events/gdg-workshop.jpeg' %}"
+                alt="">
+            </div>
+            <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
+              <div>
+                <h3 class="event-title text-center text-md-left">GDG WORKSHOP</h5>
+                  <p class="date text-center text-md-left" style="margin-bottom: 3px;">
+                    <strong>Date</strong> - 13th March 2020
+                  </p>
+                  <p class="description" style="line-height: 1.4;">
+                    In the annual Techno-Management fest Samavesh 2020 Enigma organised workshops on
+                    Machine learning using tensor flow, Blockchain and Google Cloud which were
+                    conducted by
+                    Google Developer Group, Bhubaneswar.
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-12 col-md-5">
+              <img class="img-thumbnail" src="{% static 'assets/img/events/hacktober.jpeg' %}"
+                alt="">
+            </div>
+            <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
+              <div>
+                <h3 class="event-title text-center text-md-left">HACKTOBER FEST</h5>
+                  <p class="date text-center text-md-left" style="margin-bottom: 3px;">
+                    <strong>Date</strong> - 2nd October 2020
+                  </p>
+                  <p class="description" style="line-height: 1.4;">
+                    Hacktoberfest is a month long celebration of open source software. Enigma in
+                    collaboration with
+                    DSC VSSUT organised a webinar on open source , Hacktoberfest and GSoC. Speakers
+                    Amogh
+                    Desai and Ayush Agarwal talked about their journeys of cracking GSoC and
+                    development in
+                    open source software.
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-12 col-md-5">
+              <img class="img-thumbnail"
+                src="{% static 'assets/img/events/hacktober-gitandgithub.jpeg' %}" alt="">
+            </div>
+            <div class="col-12 col-md-7 right-side pt-3 pt-md-0">
+              <div>
+                <h3 class="event-title text-center text-md-left">HACKTOBER - GIT & GITHUB</h5>
+                  <p class="date text-center text-md-left" style="margin-bottom: 3px;">
+                    <strong>Date</strong> - 11th October 2020
+                  </p>
+                  <p class="description" style="line-height: 1.4;">
+                    Enigma in collaboration with DSC VSSUT organised a meet up on the basics of Git
+                    and GitHub.
+                    Speaker Vartika Singh explained the viewers about how to access GitHub and work
+                    on its
+                    various operations like create and merge pull requests.
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 {% endblock %}
