@@ -21,6 +21,7 @@
   justify-content: center;
   align-items: center;
   background-color: black;
+  overflow: hidden;
 }
 .heading{
   text-align: center;
