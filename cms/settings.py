@@ -156,8 +156,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'enigma',
         'USER': 'remotebg',
-        'PASSWORD': '6705',
-        'HOST': 'balgopal.ml',
+        'PASSWORD': 'enigma',
+        'HOST': 'api.enigmavssut.ml',
         'PORT': '5432',
     }
 }
@@ -199,14 +199,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-GS_CREDENTIALS = service_account.Credentials.from_service_account_file("google-credentials.json")
-credential_path = "google-credentials.json"
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
+# GS_CREDENTIALS = service_account.Credentials.from_service_account_file("google-credentials.json")
+# credential_path = "google-credentials.json"
+# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 
-DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-GS_BUCKET_NAME = 'enigma-290616.appspot.com'
+# DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+# GS_BUCKET_NAME = 'enigma-290616.appspot.com'
 
-STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+# STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
 os.path.join(BASE_DIR, 'static',),)
